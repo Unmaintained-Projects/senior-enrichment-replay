@@ -1,3 +1,6 @@
+const express = require('express')
+const apiRouter = express.Router()
+const Aircraft = require('../db/models/aircraft')
 // '/aircrafts'
 
 apiRouter.get('/', (req, res, next) => {
@@ -9,7 +12,7 @@ apiRouter.get('/', (req, res, next) => {
 apiRouter.get('/:aircraftId', (req, res, next) => {
   Aircraft.findById(req.params.aircraftId)
   .then(foundAircraft => {
-    res.json(aircraft)
+    res.json(foundAircraft)
   })
   .catch(next);
 });
@@ -25,7 +28,7 @@ apiRouter.post('/', (req, res, next) => {
 apiRouter.put('/:aircraftId', (req, res, next) => {
   Aircraft.findById(req.params.aircraftId)
   .then(foundAircraft => {
-    foundAircraft.update(req.body)
+    return foundAircraft.update(req.body)
   })
   .then(updatedAircraft => {
     res.json(updatedAircraft)
@@ -34,5 +37,12 @@ apiRouter.put('/:aircraftId', (req, res, next) => {
 });
 
 apiRouter.delete('/:aircraftId', (req, res, next) => {
-
+  Aircraft.findById(req.params.aircraftId)
+  .then(foundAircraft => {
+    foundAircraft.destroy()
+  })
+  // send message confirming deleted?
+  .catch(next);
 })
+
+module.exports = apiRouter;
