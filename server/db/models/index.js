@@ -4,3 +4,16 @@
 	// Exporting all models from here seems like a good idea!
 
 // This is also probably a good place for you to set up your associations
+
+const Aircraft = require('./aircraft');
+const Country = require('./country');
+
+// aircraft must be assigned to a country
+// can have many aircrafts assigned to a country
+Aircraft.belongsTo(Country);
+Country.hasMany(Aircraft);
+
+module.exports = {
+	Aircraft,
+	Country
+}
