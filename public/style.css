@@ -1,0 +1,58 @@
+* {
+  /* box-sizing: border-box; */
+  font-family: monospace;
+  font-size: 18px;
+  padding: 0;
+}
+
+#main {
+  padding-left: 0;
+}
+
+.navbar {
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: red;
+  width: 225px;
+  padding: 20px;
+  margin: 0;
+}
+
+/* .main-content {
+  padding-left: 500px;
+  padding-right: 0px;
+} */
+/* .column {
+  display: block;
+} */
+/* .row {
+  display: block;
+} */
+.each-aircraft {
+  border: 2px solid green;
+  padding: 30px;
+}
+
+.each-aircraft img {
+  width: 600px;
+  height: auto;
+}
+
+.single-aircraft {
+  /* display: flex;
+  flex-direction: row; */
+}
+.single-aircraft img {
+  width: 800px;
+  height: auto;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h3, h4 {
+  font-size: 30px;
+}

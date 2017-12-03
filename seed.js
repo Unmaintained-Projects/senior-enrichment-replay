@@ -94,22 +94,22 @@ var data = {
     {
       name: 'United States',
       GFI: 0,
-      flagUrl: ''
+      flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png'
     },
     {
       name: 'United Kingdom',
       GFI: 0,
-      flagUrl: ''
+      flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png'
     },
     {
       name: 'Sweden',
       GFI: 0,
-      flagUrl: ''
+      flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1200px-Flag_of_Sweden.svg.png'
     },
     {
       name: 'Czechoslovakia',
       GFI: 0,
-      flagUrl: ''
+      flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Flag_of_Czechoslovakia.png/1200px-Flag_of_Czechoslovakia.png'
     }
   ]
 };

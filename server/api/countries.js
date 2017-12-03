@@ -1,7 +1,6 @@
 const express = require('express')
 const apiRouter = express.Router()
 const Country = require('../db/models/country')
-// '/countries'
 
 apiRouter.get('/', (req, res, next) => {
   Country.findAll()

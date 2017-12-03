@@ -1,16 +1,15 @@
 const express = require('express')
 const apiRouter = express.Router()
 const Aircraft = require('../db/models/aircraft')
-// '/aircrafts'
 
 apiRouter.get('/', (req, res, next) => {
-  Aircraft.findAll()
+  Aircraft.findAll({include: [{all: true}]})
   .then(aircrafts => res.json(aircrafts))
   .catch(next);
 });
 
 apiRouter.get('/:aircraftId', (req, res, next) => {
-  Aircraft.findById(req.params.aircraftId)
+  Aircraft.findById(req.params.aircraftId, {include: [{all: true}]})
   .then(foundAircraft => {
     res.json(foundAircraft)
   })
