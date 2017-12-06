@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+// import TopFive from './TopFive'
 
 export default function Navbar () {
 
   return (
     <div className="navbar">
-      <h1>AirHub</h1>
+      <h1 className="tag">
+          <Link to="/">AirHub</Link>
+      </h1>
       {/* <img className="navbar-logo" src="favicon.ico" /> */}
       <div className="navbar-links">
         <h3 className="navbar-item">
@@ -16,7 +19,7 @@ export default function Navbar () {
         </h3>
       </div>
       <div>
-        {/* Top 5 List Component goes here */}
+        {/* <TopFive /> */}
       </div>
     </div>
   )

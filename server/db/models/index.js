@@ -9,7 +9,7 @@ const Aircraft = require('./aircraft');
 const Country = require('./country');
 
 // aircraft must be assigned to a country
-// can have many aircrafts assigned to a country
+// country can have many aircrafts assigned to a country
 Aircraft.belongsTo(Country);
 Country.hasMany(Aircraft);
 

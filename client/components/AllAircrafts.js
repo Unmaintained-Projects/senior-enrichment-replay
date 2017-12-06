@@ -30,7 +30,7 @@ export default class AllAircrafts extends Component {
       <div className="all-aircrafts-container">
         <h3>Aircrafts</h3>
         <Button href="" bsStyle="danger">Add New Aircraft</Button>
-        <AddEditAircraft />
+        {/* <AddEditAircraft /> */}
         <div className="all-aircrafts-list">
         {
           aircrafts.map(aircraft => {

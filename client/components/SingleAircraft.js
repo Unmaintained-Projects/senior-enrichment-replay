@@ -22,9 +22,9 @@ export default class SingleAircraft extends Component {
   render () {
 
     const aircraft = this.state.aircraft
-    const country = this.state.aircraft.country
+    // const country = this.state.aircraft.country
     console.log('aircraft', aircraft)
-    console.log('country ', country)
+    // console.log('country.GFI ', country.GFI)
 
     return (
       <div className="single-aircraft-container">

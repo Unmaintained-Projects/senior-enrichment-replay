@@ -6,9 +6,9 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Home from './components/Home'
 
-render (
+render(
   <Provider store={store}>
-    <Home/>
+    <Home />
   </Provider>,
   document.getElementById('app')
 )
