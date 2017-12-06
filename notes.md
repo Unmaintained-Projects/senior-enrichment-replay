@@ -135,3 +135,31 @@ Once you've recorded your screencast, please *upload it to YouTube as an unliste
 - Frontend logic and functionality (25%)
 - Design + Bonus features (up to 10 Extra Credit points)
 
+---------
+
+SEED FILE: node seed.js
+
+
+US - 6
+Czechoslovakia - 1
+Sweden - 1
+UK - 2
+
+
+Boeing - United States
+  B-52 Stratofortress
+  YB-9
+Lockheed - United States
+  Electra
+  Vega
+  P-2 Neptune
+Northrop - United States
+  F-5
+Saab - Sweden
+  37 Viggen
+Aero - Czechoslovakia
+  A.11
+Bristol - United Kingdom
+  Belvedere
+Blackburn - United Kingdom
+  Buccaneer

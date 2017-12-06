@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 export default class AllCountries extends Component {
@@ -24,16 +24,17 @@ export default class AllCountries extends Component {
     const countries = this.state.countries
 
     return (
-      <div>
-        <h3>Contries</h3>
-        <div className="row">
+      <div className="all-countries-container">
+        <h3>Countries</h3>
+        <div className="all-countries-list">
         {
           countries.map(country => {
             return (
-              <Link to={`/countries/${country.id}`}>
-                <div className="col-xs-4" key={ country.id }>
+              <Link to={`/countries/${country.id}`} key={ country.id }>
+                <div className="each-country">
                   <h4>{ country.name }</h4>
-                  <img src={ country.imageUrl } />
+                  <h5>Global Firepower Index: { country.GFI }</h5>
+                  <img src={ country.flagUrl } />
                 </div>
               </Link>
             )

@@ -7,7 +7,7 @@ export default class SingleAircraft extends Component {
   constructor () {
     super()
     this.state = {
-      aircraft: {}
+      aircraft: []
     }
   }
 
@@ -29,8 +29,8 @@ export default class SingleAircraft extends Component {
           <h3>{ aircraft.make } { aircraft.model }</h3>
           <h4>Year: { aircraft.year } | Country: { aircraft.countryId }</h4>
         </div>
-        <Button bsStyle="info">Edit</Button>
-        <Button bsStyle="danger">Delete</Button>
+        <Button bsStyle="info" block>Edit</Button>
+        <Button bsStyle="danger" block>Delete</Button>
         <div>{ aircraft.description }</div>
         <img src={ aircraft.imageUrl } />
       </div>
