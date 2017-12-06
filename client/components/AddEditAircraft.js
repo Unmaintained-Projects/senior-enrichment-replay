@@ -39,3 +39,7 @@ export default class AddAircraft extends Component {
     )
   }
 }
+// SUBMIT BUTTON - link to newly created aircraft, rendering SingleAircraft
+// toggle this.state.editing to decide axios.put or axios.create
+// if props are passed in for edit, autofill info in placeholder, else use hard-coded placeholder
+// css and refactor to react-redux

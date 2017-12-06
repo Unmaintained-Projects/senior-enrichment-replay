@@ -22,18 +22,32 @@ export default class SingleAircraft extends Component {
   render () {
 
     const aircraft = this.state.aircraft
+    const country = this.state.aircraft.country
+    console.log('aircraft', aircraft)
+    console.log('country ', country)
 
     return (
-      <div className="single-aircraft">
-        <div className="title-description">
-          <h3>{ aircraft.make } { aircraft.model }</h3>
-          <h4>Year: { aircraft.year } | Country: { aircraft.countryId }</h4>
+      <div className="single-aircraft-container">
+        <div className="single-aircraft">
+          <div className="title-words">
+            <h3>{ aircraft.make } { aircraft.model }</h3>
+            <h4>Year: { aircraft.year }</h4>
+            <h4>Type: { aircraft.type }</h4>
+            {/* <h4>Country: { country.name }</h4> */}
+            <div>{ aircraft.description }</div>
+            <Button bsStyle="info">Edit</Button>
+            <Button bsStyle="danger">Destroy This Aircraft</Button>
+          </div>
+          <div className="image">
+            <img src={ aircraft.imageUrl } />
+          </div>
         </div>
-        <Button bsStyle="info" block>Edit</Button>
-        <Button bsStyle="danger" block>Delete</Button>
-        <div>{ aircraft.description }</div>
-        <img src={ aircraft.imageUrl } />
+
       </div>
     )
   }
 }
+// EDIT BUTTON - link AddAircraft component and pass in aircraft info auto filled in placeholder
+// DELETE BUTTON - Aircraft.destroy()..., and redirect to '/aircrafts'
+// css
+// refactor to react-redux

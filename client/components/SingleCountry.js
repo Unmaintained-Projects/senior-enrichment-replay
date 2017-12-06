@@ -23,10 +23,17 @@ export default class SingleCountry extends Component {
     const country = this.state.country
 
     return (
-      <div className="col-xs-4">
+      <div className="single-country-container">
         <h4>{ country.name }</h4>
         <img src={ country.flagUrl } />
+        {/* <div className="country-aircraft-list">
+          {
+
+          }
+        </div> */}
       </div>
     )
   }
 }
+
+// add all aircrafts belonging to each country
