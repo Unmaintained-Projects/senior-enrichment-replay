@@ -6,7 +6,7 @@ export default class TopFive extends Component {
   constructor () {
     super()
     this.state = {
-      topFive: {}
+      topFive: []
     }
   }
 

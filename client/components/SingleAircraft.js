@@ -22,28 +22,41 @@ export default class SingleAircraft extends Component {
   render () {
 
     const aircraft = this.state.aircraft
-    // const country = this.state.aircraft.country
+    const country = this.state.aircraft.country
     console.log('aircraft', aircraft)
-    // console.log('country.GFI ', country.GFI)
+    console.log('country ', country)
 
     return (
       <div className="single-aircraft-container">
-        <div className="single-aircraft">
-          <div className="title-words">
+
+        <div className="title-words">
+          <div className="title">
             <h3>{ aircraft.make } { aircraft.model }</h3>
+          </div>
+          <div className="words">
             <h4>Year: { aircraft.year }</h4>
             <h4>Type: { aircraft.type }</h4>
-            {/* <h4>Country: { country.name }</h4> */}
-            <div>{ aircraft.description }</div>
-            <Button bsStyle="info">Edit</Button>
-            <Button bsStyle="danger">Destroy This Aircraft</Button>
-          </div>
-          <div className="image">
-            <img src={ aircraft.imageUrl } />
+            <h4>Cost: { aircraft.cost }</h4>
+            <h4>Country: {/* { country.name }*/}</h4>
           </div>
         </div>
 
+        <div className="image">
+          <img src={ aircraft.imageUrl } />
+        </div>
+
+        <div className="description">
+          <div>{ aircraft.description }</div>
+        </div>
+
+        <div className="buttons">
+          <Button bsStyle="info">Edit This Aircraft</Button>
+          <Button bsStyle="danger">Destroy This Aircraft</Button>
+        </div>
+
       </div>
+
+
     )
   }
 }

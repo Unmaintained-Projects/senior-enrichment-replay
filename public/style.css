@@ -94,17 +94,35 @@ h3, h4 {
   display: block;
 }
 
+.title {
+  padding: 20px;
+}
+
 .title-words {
   display: block;
 }
 
-.single-aircraft {
+.words {
   display: flex;
+  padding: 0;
+  align-content: center;
 }
 
-.single-aircraft img {
+.words h4 {
+  padding: 20px;
+}
+
+.image img {
   width: auto;
   height: 400px;
+}
+
+.description {
+  padding: 20px;
+}
+.buttons {
+  justify-content: space-around;
+  padding: 30px;
 }
 
 /* ALL COUNTRIES STYLES */

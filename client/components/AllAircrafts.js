@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import AddEditAircraft from './AddEditAircraft'
+import AddAircraft from './AddAircraft'
 import { Button } from 'react-bootstrap'
 // import { connect } from 'react-redux'
 
@@ -25,12 +25,11 @@ export default class AllAircrafts extends Component {
   render () {
 
     const aircrafts = this.state.aircrafts
-    // console.log(aircrafts)
     return (
       <div className="all-aircrafts-container">
         <h3>Aircrafts</h3>
-        <Button href="" bsStyle="danger">Add New Aircraft</Button>
-        {/* <AddEditAircraft /> */}
+        <Button href="" bsStyle="danger">Add a New Aircraft</Button>
+        {/* <AddAircraft /> */}
         <div className="all-aircrafts-list">
         {
           aircrafts.map(aircraft => {
