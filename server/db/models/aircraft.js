@@ -23,12 +23,11 @@ const Aircraft = db.define('aircraft', {
     }
   },
   type: {
-    type: Sequelize.ENUM('Attack', 'Bomber', 'Versatile', 'Transport', 'Reconoissance', 'Rescue')
+    type: Sequelize.ENUM,
+    values: ['Attack', 'Bomber', 'Versatile', 'Transport', 'Reconoissance', 'Rescue']
   },
   cost: {
     type: Sequelize.DECIMAL
-    // decimal stored in millions
-    // e.g. $1 million would be 1 in db
   },
   imageUrl: {
     type: Sequelize.STRING,
@@ -42,6 +41,7 @@ const Aircraft = db.define('aircraft', {
   }
 });
 
+// have a method that gets aircrafts by inputted type
 Aircraft.getAircraftByType = (inputType) => {
   Aircraft.findAll({
     where: {
@@ -53,8 +53,11 @@ Aircraft.getAircraftByType = (inputType) => {
   })
 };
 
-Aircraft.changeCost = (inputCost) => {
-  // hook?
-};
+// have a method to change the cost of 1 to $1,000,000 when retrieving records
+// beforeUpdate: set value on a model before saving it
+// Aircraft.changeCost('beforeUpdate', (aircraft) => {
+//   const costNum = aircraft.cost;
+//   return '$' + costNum + ',000,000'
+// });
 
 module.exports = Aircraft;

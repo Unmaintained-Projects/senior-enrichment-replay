@@ -4,7 +4,7 @@
   font-size: 18px;
   padding: 0;
   background-color: black;
-  color: red;
+  color: rgb(138, 13, 13);
 }
 
 #main {
@@ -29,7 +29,7 @@
   width: 300px;
   left: 0;
   top: 0;
-  background: red;
+  background: rgb(138, 13, 13);
   padding: 20px;
   margin: 0;
   justify-content: center;
@@ -39,7 +39,7 @@
 .navbar-links {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  background-color: rgb(138, 13, 13);
   padding: 0;
 }
 
@@ -48,17 +48,17 @@
   padding: 0;
   color: inherit;
   text-decoration: none;
-  background-color: red;
+  background-color: rgb(138, 13, 13);
 }
 
 .navbar h1 {
   font-size: 70px;
-  background-color: red;
+  background-color: rgb(138, 13, 13);
 }
 
 .navbar h3 {
   font-size: 50px;
-  background-color: red;
+  background-color: rgb(138, 13, 13);
 }
 
 /* ALL AIRCRAFTS STYLES */

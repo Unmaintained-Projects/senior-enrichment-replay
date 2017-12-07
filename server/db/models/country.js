@@ -13,16 +13,17 @@ const Country = db.define('country', {
     type: Sequelize.INTEGER
   },
   flagUrl: {
-    // has a default value
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: 'https://i.redd.it/npe1l9nwmw6y.png'
   }
-  // can have many aircrafts assigned, may have none
 });
 
 Country.getTopFive = () => {
-  // finds the top 5 strongest nations
-
-  // sorted by GFI (0 is strongest, 10 weakest)
+  // finds the top 5 strongest nations sorted by GFI (0 is strongest, 10 weakest)
+  Country.findAll()
+  .then(countries => {
+    // sort top 5 countries by GFI (0-10)
+  })
 };
 
 module.exports = Country;

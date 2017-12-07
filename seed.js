@@ -16,6 +16,7 @@ var data = {
       type: 'Versatile',
       imageUrl: 'https://static.thisdayinaviation.com/wp-content/uploads/tdia//2013/06/Lockheed-Electra-10E-NR16020-by-F.X.-OGrady-1937.jpg',
       description: 'The Lockheed Model 10 Electra is an American twin-engine, all-metal monoplane airliner developed by the Lockheed Aircraft Corporation in the 1930s to compete with the Boeing 247 and Douglas DC-2. The type gained considerable fame as one was flown by Amelia Earhart on her ill-fated around-the-world expedition in 1937.',
+      cost: 1.6,
       country: {
         name: 'United States',
         GFI: 6.0,
@@ -29,6 +30,7 @@ var data = {
       type: 'Transport',
       imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Lockheed_Vega_5b_Smithsonian.jpg',
       description: 'The Lockheed Vega is an American six-passenger high-wing monoplane airliner built by the Lockheed Corporation starting in 1927. It became famous for its use by a number of record-breaking pilots who were attracted to the rugged and very long-range design. Amelia Earhart became the first woman to fly the Atlantic single-handed in one, and Wiley Post used his to prove the existence of the jet stream after having flown around the world twice.',
+      cost: 1.5,
       country: {
         name: 'United States',
         GFI: 6.0,
@@ -122,7 +124,7 @@ var data = {
       description: `The Bristol Type 192 Belvedere was a British twin-engine, tandem rotor military helicopter built by the Bristol Aeroplane Company. It was designed by Raoul Hafner for a variety of transport roles including troop transport, supply dropping and casualty evacuation. It was operated by the Royal Air Force (RAF) from 1961 to 1969. The Belvedere was Britain's only tandem rotor helicopter to enter production, and one of the few not built by Boeing or Piasecki.`,
       country: {
         name: 'United Kingdom',
-        GFI: 2.0,
+        GFI: 3.0,
         flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png'
       }
     },
@@ -135,8 +137,36 @@ var data = {
       description: `The Blackburn Buccaneer was a British carrier-borne attack aircraft designed in the 1950s for the Royal Navy (RN). Designed and initially produced by Blackburn Aircraft at Brough, it was later officially known as the Hawker Siddeley Buccaneer when Blackburn became a part of the Hawker Siddeley Group, but this name is rarely used.`,
       country: {
         name: 'United Kingdom',
-        GFI: 2.0,
+        GFI: 3.0,
         flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png'
+      }
+    },
+    {
+      make: 'Spitfire',
+      model: 'Supermarine',
+      year: 1936,
+      type: 'Attack',
+      imageUrl: 'https://www.virginexperiencedays.co.uk/content/img/product/large/PSPF20.jpg',
+      description: `The Supermarine Spitfire is a British single-seat fighter aircraft used by the Royal Air Force and other Allied countries before, during and after World War II. Many variants of the Spitfire were built, using several wing configurations, and it was produced in greater numbers than any other British aircraft. It was also the only British fighter produced continuously throughout the war. The Spitfire continues to be popular among enthusiasts; about 54 remain airworthy, and many more are static exhibits in aviation museums throughout the world.`,
+      country: {
+        name: 'United Kingdom',
+        GFI: 3.0,
+        flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png'
+      }
+    },
+    {
+      make: 'Super Étendard',
+      model: 'Dassault-Breguet',
+      year: 1974,
+      type: 'Attack',
+      imageUrl: 'http://3.bp.blogspot.com/_rUHyHq68ak0/TJIQ4A_OmZI/AAAAAAABERI/3_V_D_fpp1Y/s1600/superEtendard-bia.jpg',
+      description: `The Dassault-Breguet Super Étendard (Étendard is French for "battle flag", cognate to English "standard") is a French carrier-borne strike fighter aircraft designed by Dassault-Breguet for service with the French Navy.
+
+      The aircraft is an advanced development of the Étendard IVM, which it replaced. The Super Étendard first flew in October 1974 and entered French service in June 1978. French Super Étendards have served in several conflicts such as the Kosovo war, the war in Afghanistan and the military intervention in Libya.`,
+      country: {
+        name: 'France',
+        GFI: 1.0,
+        flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png'
       }
     }
   ],
@@ -160,6 +190,11 @@ var data = {
       name: 'Czechoslovakia',
       GFI: 1.0,
       flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Flag_of_Czechoslovakia.png/1200px-Flag_of_Czechoslovakia.png'
+    },
+    {
+      name: 'France',
+      GFI: 1.0,
+      flagUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png'
     }
   ]
 };

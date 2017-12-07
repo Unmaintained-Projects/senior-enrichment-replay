@@ -1,46 +1,11 @@
-# Senior Enrichment Project Replay
-
-Make a thing **again**!
-
-## Getting started
-
-1. Fork and clone this repo
-2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
-3. `npm install`
-4. Start the build and the application processes with: `npm run start:dev`
-5. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
-
-## Requirements
-
-### The Premise
- Design a website for aircraft fanatics 🤓 and create a RESTful API that allows you to manage these aircrafts!
-
-### The tools
-
-Use at least Sequelize, Express, React, Redux, and React-Redux when creating this app. You can incorporate any additional libraries or tools you wish.
-
-### DB Design
 
 #### Aircrafts
   * have profile info including:
-    * make - not empty or null (e.g. Lockheed Martin - for more [makers](https://en.wikipedia.org/wiki/List_of_aircraft_manufacturers))
-    * model - not empty or null (ex. [Lockheed models](https://en.wikipedia.org/wiki/List_of_Lockheed_aircraft))
-    * year - after 1903 👵
-    * type - can be either Attack, Bomber, Versatile, Transport, Reconoissance or Rescue
-    * cost - decimal stored in millions (i.e. $1 million would be 1 in the database)
-    * imageUrl - has default value
-    * description - extremely large text
+
   * must track the aircraft it succeeds via a reference called 'succeeded'
-  * must be assigned to a country
-  * must have a method `getAircraftByType`, that gets aircrafts by inputted type
-  * must have a method to change the `cost` of 1 to $1,000,000 when retrieving records
 
 #### Countries
   * have profile info including:
-    * name - not empty or null
-    * GFI - decimal between 0 - 10 (global firepower index)
-    * flagUrl - has a default value
-  * can have many aircrafts assigned (may have none)
   * must have a method `getTopFive` which finds the top 5 strongest nations sorted by GFI (0 is the strongest, 10 is the weakest)
 
 ### Views and Functionality
@@ -75,8 +40,6 @@ Use at least Sequelize, Express, React, Redux, and React-Redux when creating thi
 
 ```
 GET
-- all countries
-  - populated with aircrafts
 - a country by id
   - populated with aircrafts
   - excluding the description of the aircraft
@@ -86,27 +49,12 @@ GET
 - all aircrafts
   - populated with the name of the country that owns each aircraft
   - excluding the descriptions
-- an aircraft by id
-  - populated with only the name of the country that owns the aircraft
-```
-
-```
-POST
-- new country
-- new aircraft
-```
-
-```
-PUT
-- update country info for one country
-- update aircraft info for one aircraft
-```
 
 ```
 DELETE
 - a country
   - deletes all aircrafts associated with the country
-- an aircraft
+
 ```
 
 ### How to test functionality without a frontend
@@ -139,27 +87,16 @@ Once you've recorded your screencast, please *upload it to YouTube as an unliste
 
 SEED FILE: node seed.js
 
+# TO DO LIST
 
-US - 6
-Czechoslovakia - 1
-Sweden - 1
-UK - 2
+## In Seed.js
+[] add cost to all aircrafts
+[] link up association in seed file
 
+## In models
+[] complete class and instance methods
 
-Boeing - United States
-  B-52 Stratofortress
-  YB-9
-Lockheed - United States
-  Electra
-  Vega
-  P-2 Neptune
-Northrop - United States
-  F-5
-Saab - Sweden
-  37 Viggen
-Aero - Czechoslovakia
-  A.11
-Bristol - United Kingdom
-  Belvedere
-Blackburn - United Kingdom
-  Buccaneer
+## Final Steps
+[] CSS
+[] refactor to react-redux
+

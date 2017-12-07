@@ -9,6 +9,7 @@ apiRouter.get('/', (req, res, next) => {
   .catch(next);
 });
 
+// excluding description of aircrafts
 apiRouter.get('/:countryId', (req, res, next) => {
   Country.findById(req.params.countryId, {include: [Aircraft]})
   .then(foundCountry => {
@@ -16,6 +17,15 @@ apiRouter.get('/:countryId', (req, res, next) => {
   })
   .catch(next);
 });
+
+// top 5 countries: by GFI (0 is strongest, 10 weakest), sorted strongest to weakest
+apiRouter.get('/topFive', (req, res, next) => {
+  Country.getFive()
+  .then(topFive => {
+    //
+  })
+});
+
 
 apiRouter.post('/', (req, res, next) => {
   Country.create(req.body)
@@ -36,12 +46,12 @@ apiRouter.put('/:countryId', (req, res, next) => {
   .catch(next);
 });
 
+// delete all aircrafts associated with the country
 apiRouter.delete('/:countryId', (req, res, next) => {
   Country.findById(req.params.countryId)
   .then(foundCountry => {
     foundCountry.destroy()
   })
-  // send message confirming deleted?
   .catch(next);
 })
 
