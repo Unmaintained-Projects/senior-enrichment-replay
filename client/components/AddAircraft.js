@@ -4,23 +4,23 @@ import { Button } from 'react-bootstrap'
 
 export default class AddAircraft extends Component {
 
-  constructor () {
-    super()
-    this.state = {
-      aircrafts: []
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  // constructor () {
+  //   super()
+  //   this.state = {
+  //     aircrafts: []
+  //   }
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  // }
 
-  handleSubmit (event) {
-    const newAircraft = event.target.newAircraft.value
+  // handleSubmit (event) {
+  //   const newAircraft = event.target.newAircraft.value
 
-    axios.post('/aircrafts', newAircraft)
-    .then(res => res.data)
-    .then(newAircraft => {
-      this.state.aircrafts = newAircraft
-    })
-  }
+  //   axios.post('/aircrafts', newAircraft)
+  //   .then(res => res.data)
+  //   .then(newAircraft => {
+  //     this.state.aircrafts = newAircraft
+  //   })
+  // }
 
   render () {
     return (

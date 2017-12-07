@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import AddAircraft from './AddAircraft'
 import { Button } from 'react-bootstrap'
-// import { connect } from 'react-redux'
 
 export default class AllAircrafts extends Component {
 
@@ -28,8 +27,11 @@ export default class AllAircrafts extends Component {
     return (
       <div className="all-aircrafts-container">
         <h3>Aircrafts</h3>
-        <Button href="" bsStyle="danger">Add a New Aircraft</Button>
-        {/* <AddAircraft /> */}
+
+        <Link to="/aircrafts/addAircraft">
+          <Button bsStyle="danger">Add a New Aircraft</Button>
+       </Link>
+
         <div className="all-aircrafts-list">
         {
           aircrafts.map(aircraft => {

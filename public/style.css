@@ -103,13 +103,13 @@ h3, h4 {
 }
 
 .words {
-  display: flex;
+  display: block;
   padding: 0;
   align-content: center;
 }
 
 .words h4 {
-  padding: 20px;
+  padding: 10px;
 }
 
 .image img {
@@ -169,4 +169,27 @@ h3, h4 {
 .single-country-container img {
   width: 150px;
   height: 100px;
+}
+
+/* TOP FIVE STYLES */
+
+.top-five-container {
+
+  background-color: black;
+}
+
+.top-five-container h4 {
+  color: red;
+}
+
+/* ADD AIRCRAFT STYLES */
+
+.new-aircraft-form {
+  display: block;
+}
+
+/* EDIT AIRCRAFT STYLES */
+
+.edit-aircraft-form {
+  display: block;
 }

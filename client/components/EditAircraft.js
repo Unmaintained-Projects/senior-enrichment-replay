@@ -24,7 +24,7 @@ export default class EditAircraft extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}    name="aircraft"className="edit-aircraft-form">
+      <form onSubmit={this.handleSubmit} name="aircraft" className="edit-aircraft-form">
         <h2>Edit an Aircraft</h2>
         <input name="make" placeholder="Enter Aircraft Make" />
         <input name="model" placeholder="Enter Aircraft Model" />
@@ -34,11 +34,11 @@ export default class EditAircraft extends Component {
         <input name="imageUrl" placeholder="Enter Aircraft Image URL" />
         <input name="desc" placeholder="Enter Aircraft Description" />
         <input name="country" placeholder="Enter Aircraft Country" />
-        <Button bsStyle="danger">Submit Updated Aircraft</Button>
+        <Button bsStyle="danger">Update Aircraft</Button>
       </form>
     )
   }
 }
 // SUBMIT BUTTON - link to updated aircraft, rendering Updated Aircraft
-// AXIOS request correct?
+// AXIOS request check
 // css and refactor to react-redux

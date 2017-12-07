@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
 export default class SingleAircraft extends Component {
@@ -23,8 +24,6 @@ export default class SingleAircraft extends Component {
 
     const aircraft = this.state.aircraft
     const country = this.state.aircraft.country
-    console.log('aircraft', aircraft)
-    console.log('country ', country)
 
     return (
       <div className="single-aircraft-container">
@@ -37,6 +36,7 @@ export default class SingleAircraft extends Component {
             <h4>Year: { aircraft.year }</h4>
             <h4>Type: { aircraft.type }</h4>
             <h4>Cost: { aircraft.cost }</h4>
+            {/* Link Country to the SingleCountry component */}
             <h4>Country: {/* { country.name }*/}</h4>
           </div>
         </div>
@@ -50,8 +50,14 @@ export default class SingleAircraft extends Component {
         </div>
 
         <div className="buttons">
-          <Button bsStyle="info">Edit This Aircraft</Button>
-          <Button bsStyle="danger">Destroy This Aircraft</Button>
+          {/* capture update info and send to server and rerender new updated plane */}
+          <Link to="/aircrafts/editAircraft">
+            <Button bsStyle="info">Edit This Aircraft</Button>
+          </Link>
+          {/* Link up delete functionality!!! */}
+          <Link to="/">
+            <Button bsStyle="danger">Destroy This Aircraft</Button>
+          </Link>
         </div>
 
       </div>
@@ -60,7 +66,7 @@ export default class SingleAircraft extends Component {
     )
   }
 }
-// EDIT BUTTON - link AddAircraft component and pass in aircraft info auto filled in placeholder
+// EDIT BUTTON - capture and pass in aircraft info to update to server and then show udated airplane
 // DELETE BUTTON - Aircraft.destroy()..., and redirect to '/aircrafts'
 // css
 // refactor to react-redux

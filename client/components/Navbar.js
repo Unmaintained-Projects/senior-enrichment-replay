@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import TopFive from './TopFive'
+import TopFive from './TopFive'
 
 export default function Navbar () {
 
@@ -19,7 +19,7 @@ export default function Navbar () {
         </h3>
       </div>
       <div>
-        {/* <TopFive /> */}
+        <TopFive />
       </div>
     </div>
   )

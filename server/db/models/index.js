@@ -8,12 +8,12 @@
 const Aircraft = require('./aircraft');
 const Country = require('./country');
 
-// aircraft must be assigned to a country
 Aircraft.belongsTo(Country);
-// country can have many aircrafts assigned to a country
-Country.hasMany(Aircraft);
+Country.hasMany(Aircraft, {
+	onDelete: 'cascade'
+});
 
 module.exports = {
 	Aircraft,
 	Country
-}
+};

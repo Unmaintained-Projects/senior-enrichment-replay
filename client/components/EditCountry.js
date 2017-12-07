@@ -29,7 +29,7 @@ export default class EditCountry extends Component {
         <input name="name" placeholder="Enter Country Name" />
         <input name="GFI" placeholder="Enter Country GFI" />
         <input name="flag" placeholder="Enter Flag URL Link" />
-        <Button bsStyle="danger">Submit Updated Country</Button>
+        <Button bsStyle="danger">Update Country</Button>
       </form>
     )
   }
