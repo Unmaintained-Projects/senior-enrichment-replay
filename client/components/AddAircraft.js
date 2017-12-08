@@ -26,14 +26,16 @@ export default class AddAircraft extends Component {
     return (
       <form onSubmit={this.handleSubmit}    name="newAircraft"className="new-aircraft-form">
         <h2>Add a New Aircraft</h2>
-        <input name="make" placeholder="Enter Aircraft Make" />
-        <input name="model" placeholder="Enter Aircraft Model" />
-        <input name="year" placeholder="Enter Aircraft Year" />
-        <input name="type" placeholder="Enter Aircraft Type" />
-        <input name="cost" placeholder="Enter Aircraft Cost" />
-        <input name="imageUrl" placeholder="Enter Aircraft Image URL" />
-        <input name="desc" placeholder="Enter Aircraft Description" />
-        <input name="country" placeholder="Enter Aircraft Country" />
+        <div className="form-inputs">
+          Make: <input name="make" placeholder="Enter Aircraft Make" />
+          Model: <input name="model" placeholder="Enter Aircraft Model" />
+          Year: <input name="year" placeholder="Enter Aircraft Year" />
+          Type: <input name="type" placeholder="Enter Aircraft Type" />
+          Cost: <input name="cost" placeholder="Enter Aircraft Cost" />
+          Image URL: <input name="imageUrl" placeholder="Enter Aircraft Image URL" />
+          Description: <input name="desc" placeholder="Enter Aircraft Description" />
+          Country: <input name="country" placeholder="Enter Aircraft Country" />
+        </div>
         <Button bsStyle="danger">Submit New Aircraft</Button>
       </form>
     )

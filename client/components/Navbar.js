@@ -18,7 +18,7 @@ export default function Navbar () {
           <Link to="/countries">Countries</Link>
         </h3>
       </div>
-      <div>
+      <div className="top-five">
         <TopFive />
       </div>
     </div>

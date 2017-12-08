@@ -24,26 +24,32 @@ export default class SingleAircraft extends Component {
 
     const aircraft = this.state.aircraft
     const country = this.state.aircraft.country
-
+    console.log('aircraft: ', aircraft)
+    console.log('country: ', country)
     return (
       <div className="single-aircraft-container">
 
-        <div className="title-words">
-          <div className="title">
+      <div className="title">
             <h3>{ aircraft.make } { aircraft.model }</h3>
-          </div>
+      </div>
+
+      <div className="header">
+        <div className="title-words">
+
           <div className="words">
             <h4>Year: { aircraft.year }</h4>
             <h4>Type: { aircraft.type }</h4>
             <h4>Cost: { aircraft.cost }</h4>
-            {/* Link Country to the SingleCountry component */}
-            <h4>Country: {/* { country.name }*/}</h4>
+            {/* <Link to={`/countries/${country.id}`}>
+              <h4>Country: {/* { country.name }</h4>
+            </Link> */}
           </div>
         </div>
 
         <div className="image">
           <img src={ aircraft.imageUrl } />
         </div>
+      </div>
 
         <div className="description">
           <div>{ aircraft.description }</div>
@@ -61,10 +67,9 @@ export default class SingleAircraft extends Component {
         </div>
 
       </div>
-
-
     )
   }
+
 }
 // EDIT BUTTON - capture and pass in aircraft info to update to server and then show udated airplane
 // DELETE BUTTON - Aircraft.destroy()..., and redirect to '/aircrafts'

@@ -17,7 +17,6 @@
   position: relative;
   left: 50px;
   width: 1000px;
-  border: 5px solid yellow;
 }
 
 /* NAVBAR STYLES */
@@ -73,7 +72,6 @@
 
 .each-aircraft {
   display: block;
-  border: 2px solid gray;
   padding: 30px;
   height: 500px;
   width: 1000px;
@@ -94,12 +92,20 @@ h3, h4 {
   display: block;
 }
 
+.header {
+  display: flex;
+}
+
 .title {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
   padding: 20px;
 }
 
 .title-words {
   display: block;
+  width: 400px;
 }
 
 .words {
@@ -109,7 +115,7 @@ h3, h4 {
 }
 
 .words h4 {
-  padding: 10px;
+  padding: 5px;
 }
 
 .image img {
@@ -174,7 +180,6 @@ h3, h4 {
 /* TOP FIVE STYLES */
 
 .top-five-container {
-
   background-color: black;
 }
 
@@ -186,6 +191,11 @@ h3, h4 {
 
 .new-aircraft-form {
   display: block;
+  padding-left: 20px;
+}
+
+.form-inputs {
+  display: inline;
 }
 
 /* EDIT AIRCRAFT STYLES */

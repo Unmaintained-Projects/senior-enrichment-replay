@@ -11,7 +11,6 @@ export default class TopFive extends Component {
   // }
 
   // componentDidMount () {
-
   //   axios.get('/countries/topFive')
   //   .then(res => res.data)
   //   .then(topFive => res.json(topFive))

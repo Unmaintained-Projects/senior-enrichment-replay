@@ -1,21 +1,12 @@
 
-#### Aircrafts
-  * have profile info including:
-  **** AS PER KATE: IGNORE THIS:
-  * must track the aircraft it succeeds via a reference called 'succeeded'
-
-#### Countries
-  * have profile info including:
-
+# Countries Model
   * must have a method `getTopFive` which finds the top 5 strongest nations sorted by GFI (0 is the strongest, 10 is the weakest)
 
-### Views and Functionality
+# Views and Functionality
 
 - Navigation: as a user I...
 
   * can navigate to view a top 5 **Single Country** from **Home** (see `Views` below for more details)
-
-  * can navigate to view a **Single Aircraft** from **Single Country** (for any aircraft that the country owns)
   * can navigate to view an aircrafts' **Single Country** from **Single Aircraft**
 
 - Views: as a user I...
@@ -32,7 +23,7 @@
   * can edit an aircraft's info, including the country that owns the aircraft
   * can delete an aircraft
 
-### Routes
+# Routes
 
 ```
 GET
@@ -45,54 +36,42 @@ GET
 - all aircrafts
   - populated with the name of the country that owns each aircraft
   - excluding the descriptions
-
-```
-DELETE
-- a country
-  - deletes all aircrafts associated with the country
-
 ```
 
-### How to test functionality without a frontend
-- GET: use your browser
-- POST / PUT / DELETE :
- - CLI (command line interface) with `curl`
-   - e.g. `curl -H "Content-Type: application/json" -X POST -d '{"username":"kate","password":"1234"}' http://localhost:3000/api/login`
-   - `-H`: headers. `-X`: verb. `-d`: data (must be of the type specified in headers). http://[address]:[port]/[route_path]
- - [Postman](https://www.getpostman.com/)
-   ![](https://www.dropbox.com/s/4fk3b90cd0i1a5y/postman_post.png?raw=true)
-- Databases: use Sequelize in your routes and see if you are receiving what you expect
+# In Seed.js
+[] add cost to all aircrafts
+[] link up association in seed file
+
+# In models
+[] complete class and instance methods
+
+# Final Steps
+[] CSS
+[] refactor to react-redux
 
 
-## Video Walkthrough
+
+
+
+
+
+
+
+
+
+
+# Video Walkthrough
 
 Please submit a 3-minute screencast of a walk-through of the functionality *and code* (focus mostly on code) for each user story in your app. E.g. for "As a user, I can create a campus", please show us that you can successfully create a campus in your app, and also the actual code that is involved in doing that (from the front-end components to the backend routes and models). We recommend using Quicktime to record the screencast (instructions on how to do that [here](https://support.apple.com/kb/PH5882?locale=en_US&viewlocale=en_US)).
 
 Once you've recorded your screencast, please *upload it to YouTube as an unlisted video*. Email `academics@fullstackacademy.com` with the title `Senior Enrichment Submission: [Your Name]` and include your repo link and YouTube recording link. This will aid us in evaluating your submission.
 
-## Evaluation
-[Rubric](https://docs.google.com/document/d/1opwC-nuzmc84jTZqpQn1hsXiMxWSpkK_TwQAOHEEbEs/edit?usp=sharing)
-
-- Code modularity/readability (25%)
-- Models (25%)
-- Routes (25%)
-- Frontend logic and functionality (25%)
-- Design + Bonus features (up to 10 Extra Credit points)
-
 ---------
 
 SEED FILE: node seed.js
 
-# TO DO LIST
-
-## In Seed.js
-[] add cost to all aircrafts
-[] link up association in seed file
-
-## In models
-[] complete class and instance methods
-
-## Final Steps
-[] CSS
-[] refactor to react-redux
-
+---------
+<!-- #### Aircrafts
+  * have profile info including: -->
+  <!-- **** AS PER KATE: IGNORE THIS:
+  * must track the aircraft it succeeds via a reference called 'succeeded' -->

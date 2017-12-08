@@ -26,9 +26,9 @@ export default class EditCountry extends Component {
     return (
       <form onSubmit={this.handleSubmit}    name="country"className="edit-country-form">
         <h2>Edit a Country</h2>
-        <input name="name" placeholder="Enter Country Name" />
-        <input name="GFI" placeholder="Enter Country GFI" />
-        <input name="flag" placeholder="Enter Flag URL Link" />
+        Name: <input name="name" placeholder="Enter Country Name" />
+        Global Firepower Index: <input name="GFI" placeholder="Enter Country GFI" />
+        Flag URL: <input name="flag" placeholder="Enter Flag URL Link" />
         <Button bsStyle="danger">Update Country</Button>
       </form>
     )
