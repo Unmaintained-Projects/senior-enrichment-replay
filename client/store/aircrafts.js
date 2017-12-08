@@ -27,20 +27,6 @@ export function getAircraft (aircraft) {
   }
 }
 
-export function addAircraft (aircraft) {
-  const action = {
-    type: ADD_AIRCRAFT,
-    aircraft
-  }
-}
-
-export function editAircraft (aircraft) {
-  const action = {
-    type: EDIT_AIRCRAFT,
-    aircraft
-  }
-}
-
 export function deleteAircraft (aircraft) {
   const action = {
     type: DELETE_AIRCRAFT,
@@ -48,7 +34,7 @@ export function deleteAircraft (aircraft) {
   }
 }
 
-// THUNKS
+// THUNKS CREATORS
 export function fetchAircrafts(aircrafts) {
 
   return function thunk(dispatch) {
@@ -114,7 +100,7 @@ export function destroyAircraft(aircraft) {
 
 }
 
-// REDUCER
+// REDUCER FUNCTION
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_AIRCRAFTS:

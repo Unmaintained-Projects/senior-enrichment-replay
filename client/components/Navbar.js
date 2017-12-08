@@ -6,17 +6,20 @@ export default function Navbar () {
 
   return (
     <div className="navbar">
-      <h1 className="tag">
-          <Link to="/">AirHub</Link>
-      </h1>
+
+      <Link to="/" className="tag">
+        <h1>AirHub</h1>
+      </Link>
+
       {/* <img className="navbar-logo" src="favicon.ico" /> */}
       <div className="navbar-links">
-        <h3 className="navbar-item">
-          <Link to="/">Aircrafts</Link>
-        </h3>
-        <h3 className="navbar-item">
-          <Link to="/countries">Countries</Link>
-        </h3>
+        <Link to="/">
+          <h3>Aircrafts</h3>
+        </Link>
+        <Link to="/countries">
+          <h3>Countries</h3>
+        </Link>
+
       </div>
       <div className="top-five">
         <TopFive />

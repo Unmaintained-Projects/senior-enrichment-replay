@@ -33,28 +33,23 @@
   color: black;
 }
 
-.navbar-links {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(138, 13, 13);
-  padding: 0;
-}
-
-.nav-item {
-  background-color: white;
-  padding: 0;
-  color: inherit;
-  text-decoration: none;
-  background-color: rgb(138, 13, 13);
-}
-
-.navbar h1 {
+.tag h1 {
   font-size: 70px;
+  color: gray;
   background-color: rgb(138, 13, 13);
 }
 
-.navbar h3 {
+.navbar-links {
+  display: block;
+  /* flex-direction: column; */
+  justify-content: center;
   font-size: 50px;
+  background-color: rgb(138, 13, 13);
+  padding: 0;
+}
+
+.navbar-links h3 {
+  color: gray;
   background-color: rgb(138, 13, 13);
 }
 
@@ -66,12 +61,12 @@
 
 .all-aircrafts-container h3 {
   font-size: 40px;
+  text-decoration: gray underline;
   display: flex;
   justify-content: center;
 }
 
 .all-aircrafts-container button {
-  /* display: flex; */
   top: 20px;
   right: 20px;
 }
