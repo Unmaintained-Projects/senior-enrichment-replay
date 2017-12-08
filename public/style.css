@@ -24,14 +24,12 @@
 .navbar {
   position: fixed;
   display: block;
-  height: 100vh;
   width: 300px;
   left: 0;
   top: 0;
-  background: rgb(138, 13, 13);
+  background-color: rgb(138, 13, 13);
   padding: 20px;
   margin: 0;
-  justify-content: center;
   color: black;
 }
 
@@ -66,24 +64,38 @@
   display: block;
 }
 
+.all-aircrafts-container h3 {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.all-aircrafts-container button {
+  /* display: flex; */
+  top: 20px;
+  right: 20px;
+}
+
 .all-aircrafts-list {
   display: block;
+  justify-content: center;
 }
 
 .each-aircraft {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   padding: 30px;
   height: 500px;
   width: 1000px;
 }
 
+.each-aircraft h4 {
+  font-size: 30px;
+}
+
 .each-aircraft img {
   width: 600px;
   height: 350px;
-}
-
-h3, h4 {
-  font-size: 30px;
 }
 
 /* SINGLE AIRCRAFT STYLES */
@@ -173,8 +185,8 @@ h3, h4 {
 }
 
 .single-country-container img {
-  width: 150px;
-  height: 100px;
+  width: 600px;
+  height: 350px;
 }
 
 /* TOP FIVE STYLES */

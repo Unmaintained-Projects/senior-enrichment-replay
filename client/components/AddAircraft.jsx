@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Button } from 'react-bootstrap'
+// import axios from 'axios'
+import { Button, Form } from 'react-bootstrap'
 
 export default class AddAircraft extends Component {
 
@@ -24,7 +24,7 @@ export default class AddAircraft extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}    name="newAircraft"className="new-aircraft-form">
+      <Form onSubmit={this.handleSubmit}name="newAircraft"className="new-aircraft-form">
         <h2>Add a New Aircraft</h2>
         <div className="form-inputs">
           Make: <input name="make" placeholder="Enter Aircraft Make" />
@@ -37,7 +37,7 @@ export default class AddAircraft extends Component {
           Country: <input name="country" placeholder="Enter Aircraft Country" />
         </div>
         <Button bsStyle="danger">Submit New Aircraft</Button>
-      </form>
+      </Form>
     )
   }
 }

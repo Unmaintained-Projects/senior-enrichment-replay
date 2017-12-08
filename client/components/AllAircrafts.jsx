@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import AddAircraft from './AddAircraft'
 import { Button } from 'react-bootstrap'
 
 export default class AllAircrafts extends Component {
@@ -29,7 +28,7 @@ export default class AllAircrafts extends Component {
         <h3>Aircrafts</h3>
 
         <Link to="/aircrafts/addAircraft">
-          <Button bsStyle="danger">Add a New Aircraft</Button>
+          <Button bsStyle="default">Add a New Aircraft</Button>
        </Link>
 
         <div className="all-aircrafts-list">
