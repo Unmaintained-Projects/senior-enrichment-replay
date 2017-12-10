@@ -21,7 +21,6 @@ export default class AllAircrafts extends Component {
 
   render () {
     const aircrafts = this.state.aircraftReducer.aircrafts
-    console.log(aircrafts)
 
     return (
       <div className="all-aircrafts-container">

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
-import store, { getCountriesFromServer } from '../store'
+import store from '../store'
 
 export default class AllCountries extends Component {
 
@@ -11,14 +10,7 @@ export default class AllCountries extends Component {
   }
 
   componentDidMount () {
-    axios.get('/api/countries')
-    .then(res => res.data)
-    .then(countries => {
-      const action = getCountriesFromServer(countries)
-      store.dispatch(action)
-      // this.setState({ countries })
-    })
-    store.subscribe( () => this.setState(store.getState()))
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
   }
 
   componentWillUnmount () {
@@ -27,8 +19,8 @@ export default class AllCountries extends Component {
 
   render () {
 
-    const countries = this.state.countries
-
+    const countries = this.state.countryReducer.countries
+    console.log(countries)
     return (
       <div className="all-countries-container">
         <h3>Countries</h3>

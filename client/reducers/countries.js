@@ -1,52 +1,42 @@
 import axios from 'axios'
 
 // ACTION TYPES
-const GET_COUNTRIES = 'GET_COUNTIRES'
-const GET_COUNTRY = 'GET_COUNTRY'
+export const GET_COUNTRIES = 'GET_COUNTIRES'
+// const GET_COUNTRY = 'GET_COUNTRY'
 
 // ACTION CREATORS
 export function getCountries (countries) {
-  return {
-    type: GET_COUNTRIES,
-    countries
-  }
-}
-
-export function getCountry (country) {
-  return {
-    type: GET_COUNTRY,
-    country
-  }
+  const action = { type: GET_COUNTRIES, countries }
+  return action
 }
 
 // THUNK CREATORS
-export function fetchCountries (countries) {
+export function fetchCountries () {
 
   return function thunk(dispatch) {
-    return axios.get('/api/countries', countries)
+    return axios.get('/api/countries')
       .then(res => res.data)
-      .then(foundCountries => {
-        const action = getCountries(foundCountries)
+      .then(countries => {
+        const action = getCountries(countries)
         dispatch(action)
       })
-      .catch(error => {console.log(error)})
     }
 
 }
 
-export function fetchCountry (country) {
+// export function fetchCountry (country) {
 
-  return function thunk(dispatch) {
-    return axios.get(`/api/countries/${countryId}`, country)
-      .then(res => res.data)
-      .then(foundCountry => {
-        const action = getCountry(foundCountry)
-        dispatch(action)
-      })
-      .catch(error => {console.log(error)})
-    }
+//   return function thunk(dispatch) {
+//     return axios.get(`/api/countries/${countryId}`, country)
+//       .then(res => res.data)
+//       .then(foundCountry => {
+//         const action = getCountry(foundCountry)
+//         dispatch(action)
+//       })
+//       .catch(error => {console.log(error)})
+//     }
 
-}
+// }
 
 export function postCountry(country) {
 
@@ -75,13 +65,14 @@ export function postCountry(country) {
 
 // }
 
+const initialState = {
+  countries: []
+}
 // REDUCER FUNCTION
-export default function countryReducer(state = [], action) {
+export default function countryReducer(state = initialState, action) {
   switch (action.type) {
     case GET_COUNTRIES:
-      return
-    case GET_COUNTRY:
-      return
+      return Object.assign({}, state, {countries: action.countries})
     default:
       return state
   }

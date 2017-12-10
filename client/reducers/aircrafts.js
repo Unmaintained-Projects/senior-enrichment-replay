@@ -11,11 +11,6 @@ export function getAircrafts (aircrafts) {
   return action
 }
 
-// export function getAircraft (aircraft) {
-//   const action = { type: GET_AIRCRAFT, aircraft }
-//   return action
-// }
-
 // export function addAircraft (newAircraft) {
 //   const action = { type: ADD_AIRCRAFT, newAircraft}
 //   return action

@@ -10,13 +10,17 @@ import EditAircraft from './EditAircraft'
 import AddCountry from './AddCountry'
 import EditCountry from './EditCountry'
 import store from '../store'
-import { fetchAircrafts } from '../actions/aircraftActions'
+import { fetchAircrafts } from '../reducers/aircrafts'
+import { fetchCountries } from '../reducers/countries'
+
 
 export default class Home extends Component {
 
   componentDidMount () {
     const aircraftThunk = fetchAircrafts()
     store.dispatch(aircraftThunk)
+    const countryThunk = fetchCountries()
+    store.dispatch(countryThunk)
   }
 
   render () {
