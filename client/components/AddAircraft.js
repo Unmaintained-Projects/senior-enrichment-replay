@@ -1,33 +1,17 @@
-import React, { Component } from 'react'
-// import axios from 'axios'
-import { Button, Form } from 'react-bootstrap'
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { postAircraft } from '../reducers/aircrafts'
 
-export default class AddAircraft extends Component {
+function AddAircraft (props) {
 
-  // constructor () {
-  //   super()
-  //   this.state = {
-  //     aircrafts: []
-  //   }
-  //   this.handleSubmit = this.handleSubmit.bind(this)
-  // }
+  const { handleSubmit } = props;
 
-  // handleSubmit (event) {
-  //   const newAircraft = event.target.newAircraft.value
-
-  //   axios.post('/aircrafts', newAircraft)
-  //   .then(res => res.data)
-  //   .then(newAircraft => {
-  //     this.state.aircrafts = newAircraft
-  //   })
-  // }
-
-  render () {
     return (
-      <Form onSubmit={this.handleSubmit}name="newAircraft"className="new-aircraft-form">
+      <form onSubmit={(event => handleSubmit(aircraft))} className="new-aircraft-form">
         <h2>Add a New Aircraft</h2>
         <div className="form-inputs">
-          Make: <input name="make" placeholder="Enter Aircraft Make" />
+          Make: <input name="aircraft" placeholder="Enter Aircraft Make" />
           Model: <input name="model" placeholder="Enter Aircraft Model" />
           Year: <input name="year" placeholder="Enter Aircraft Year" />
           Type: <input name="type" placeholder="Enter Aircraft Type" />
@@ -37,11 +21,26 @@ export default class AddAircraft extends Component {
           Country: <input name="country" placeholder="Enter Aircraft Country" />
         </div>
         <Button bsStyle="danger">Submit New Aircraft</Button>
-      </Form>
+      </form>
     )
+}
+
+// const mapStateToProps = function (state) {
+//   return {
+//     aircrafts: state.aircrafts
+//   }
+// }
+
+const mapDispatchToProps = function (dispatch) {
+  return {
+    handleSubmit (event, aircraft) {
+      event.preventDefault()
+      dispatch(postAircraft({aircraft}))
+    }
   }
 }
+
+export default connect(null, mapDispatchToProps)(AddAircraft)
 // SUBMIT BUTTON - link to newly created aircraft, rendering SingleAircraft
-// toggle this.state.editing to decide axios.put or axios.create
-// if props are passed in for edit, autofill info in placeholder, else use hard-coded placeholder
+
 // css and refactor to react-redux

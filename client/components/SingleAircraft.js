@@ -1,31 +1,32 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
+import store from '../store'
 
 export default class SingleAircraft extends Component {
 
-  constructor () {
-    super()
-    this.state = {
-      aircraft: []
-    }
+  constructor (props) {
+    super(props)
+    this.state = store.getState()
   }
 
   componentDidMount () {
-    const aircraftId = this.props.match.params.aircraftId
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  }
 
-    axios.get(`/api/aircrafts/${aircraftId}`)
-    .then((res => res.data))
-    .then(aircraft => this.setState({ aircraft }))
+  componentWillUnmount () {
+    this.unsubscribe()
   }
 
   render () {
+    const aircrafts = this.state.aircraftReducer.aircrafts
+    console.log('aircrafts in single', aircrafts)
+    const aircraftId = parseInt(this.props.match.params.aircraftId)
+    const aircraftArray = aircrafts.filter(eachAircraft => eachAircraft.id === aircraftId)
+    const aircraft = aircraftArray[0]
+    const country = aircraft.country
+    const countryName = aircraft.country.name
 
-    const aircraft = this.state.aircraft
-    const country = this.state.aircraft.country
-    console.log('aircraft: ', aircraft)
-    console.log('country: ', country)
     return (
       <div className="single-aircraft-container">
 
@@ -39,9 +40,9 @@ export default class SingleAircraft extends Component {
               <h4>Year: { aircraft.year }</h4>
               <h4>Type: { aircraft.type }</h4>
               <h4>Cost: { aircraft.cost }</h4>
-              {/* <Link to={`/countries/${country.id}`}>
-                <h4>Country: {/* { country.name }</h4>
-              </Link> */}
+              <Link to={`/countries/${country.id}`}>
+                <h4>Country: { countryName }</h4>
+              </Link>
             </div>
           </div>
           <div className="image">
@@ -69,7 +70,3 @@ export default class SingleAircraft extends Component {
   }
 
 }
-// EDIT BUTTON - capture and pass in aircraft info to update to server and then show udated airplane
-// DELETE BUTTON - Aircraft.destroy()..., and redirect to '/aircrafts'
-// css
-// refactor to react-redux

@@ -11,7 +11,6 @@ export default function Navbar () {
         <h1>AirHub</h1>
       </Link>
 
-      {/* <img className="navbar-logo" src="favicon.ico" /> */}
       <div className="navbar-links">
         <Link to="/">
           <h3>Aircrafts</h3>

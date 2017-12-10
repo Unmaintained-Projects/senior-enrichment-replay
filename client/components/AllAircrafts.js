@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
+import store from '../store'
+
 
 export default class AllAircrafts extends Component {
 
-  constructor () {
-    super()
-    this.state = {
-      aircrafts: []
-    }
+  constructor (props) {
+    super(props)
+    this.state = store.getState()
   }
 
   componentDidMount () {
-    axios.get('/api/aircrafts')
-    .then(res => res.data)
-    .then(aircrafts => {
-      this.setState({ aircrafts })
-    })
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  }
+
+  componentWillUnmount () {
+    this.unsubscribe()
   }
 
   render () {
+    const aircrafts = this.state.aircraftReducer.aircrafts
+    console.log(aircrafts)
 
-    const aircrafts = this.state.aircrafts
     return (
       <div className="all-aircrafts-container">
         <h3>Aircrafts</h3>
@@ -51,14 +51,15 @@ export default class AllAircrafts extends Component {
 }
 
 // const mapStateToProps = (state) => {
+//   console.log('state in map', state)
 //   return {
-//     aircrafts: []
+//     aircrafts: state.aircrafts
 //   }
-// };
+// }
 
 // const mapDispatchToProps = (dispatch, history) => {
 //   return {
-
+//         getAircrafts: () => dispatch(action.)
 //   }
 // }
 

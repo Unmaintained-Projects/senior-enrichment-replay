@@ -1,29 +1,38 @@
 
-# Countries Model
+
+
+
+
+
+
+
+
+
+
+
+
+# In Seed.js
+  * refactor seed file to include associations
+
+# In models
+  # Countries Model
   * must have a method `getTopFive` which finds the top 5 strongest nations sorted by GFI (0 is the strongest, 10 is the weakest)
-
-# Views and Functionality
-
-- Navigation: as a user I...
-
-  * can navigate to view a top 5 **Single Country** from **Home** (see `Views` below for more details)
-  * can navigate to view an aircrafts' **Single Country** from **Single Aircraft**
-
-- Views: as a user I...
-
-  * see a scoreboard of the top 5 countries, in order, measured by GFI (Global Firepower Index - 0 is strongest(top), 10 is the weakest(bottom)) on the **Home** view
-
-  * see details about an aircraft on the **Single Aircraft** view, including that aircrafts' country
-
-- Actions: as a user I...
-  * can create a country
+  # Views and Functionality
+  - Navigation: as a user I...
+    * can navigate to view a top 5 **Single Country** from **Home** (see `Views` below for more details)
+    * can navigate to view an aircrafts' **Single Country** from **Single Aircraft**
+  - Views: as a user I...
+  * see a scoreboard of the top 5 countries, in order,  measured by GFI (Global Firepower Index - 0 is    strongest(top), 10 is the weakest(bottom)) on the **Home** view
+    * see details about an aircraft on the **Single Aircraft** view, including that aircrafts' country
+  - Actions: as a user I...
+    * can create a country
   * can edit a country's info, including adding/removing an aircraft to/from that country
   * can delete a country
   * can create an aircraft
   * can edit an aircraft's info, including the country that owns the aircraft
   * can delete an aircraft
 
-# Routes
+  # Routes
 
 ```
 GET
@@ -38,28 +47,13 @@ GET
   - excluding the descriptions
 ```
 
-# In Seed.js
-[] add cost to all aircrafts
-[] link up association in seed file
 
-# In models
-[] complete class and instance methods
+# React-Redux
+  * refactor to react-redux
 
 # Final Steps
-[] CSS
-[] refactor to react-redux
-[] screencast
-
-
-
-
-
-
-
-
-
-
-
+  * CSS
+  * screencast
 
 # Video Walkthrough
 

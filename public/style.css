@@ -41,14 +41,14 @@
 
 .navbar-links {
   display: block;
-  /* flex-direction: column; */
-  justify-content: center;
   font-size: 50px;
   background-color: rgb(138, 13, 13);
   padding: 0;
 }
 
 .navbar-links h3 {
+  display: flex;
+  justify-content: center;
   color: gray;
   background-color: rgb(138, 13, 13);
 }
@@ -64,6 +64,7 @@
   text-decoration: gray underline;
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .all-aircrafts-container button {
@@ -103,11 +104,13 @@
   display: flex;
 }
 
-.title {
+.title h3 {
   display: flex;
   justify-content: center;
   width: 1000px;
   padding: 20px;
+  font-size: 40px;
+  text-decoration: gray underline;
 }
 
 .title-words {

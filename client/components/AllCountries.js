@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import store, { getCountriesFromServer } from '../store'
 
 export default class AllCountries extends Component {
 
   constructor () {
     super()
-    this.state = {
-      countries: []
-    }
+    this.state = store.getState()
   }
 
   componentDidMount () {
     axios.get('/api/countries')
     .then(res => res.data)
     .then(countries => {
-      this.setState({ countries })
+      const action = getCountriesFromServer(countries)
+      store.dispatch(action)
+      // this.setState({ countries })
     })
+    store.subscribe( () => this.setState(store.getState()))
+  }
+
+  componentWillUnmount () {
+    this.unsubscribe()
   }
 
   render () {
