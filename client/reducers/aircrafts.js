@@ -2,8 +2,8 @@ import axios from 'axios'
 
 // ACTION TYPES
 export const GET_AIRCRAFTS = 'GET_AIRCRAFTS'
-// const GET_AIRCRAFT = 'GET_AIRCRAFT'
-// const ADD_AIRCRAFT = 'ADD_AIRCRAFT'
+export const ADD_AIRCRAFT = 'ADD_AIRCRAFT'
+export const GET_AIRCRAFT_NAME = 'GET_AIRCRAFT_NAME'
 
 // ACTION CREATORS
 export function getAircrafts (aircrafts) {
@@ -11,10 +11,15 @@ export function getAircrafts (aircrafts) {
   return action
 }
 
-// export function addAircraft (newAircraft) {
-//   const action = { type: ADD_AIRCRAFT, newAircraft}
-//   return action
-// }
+export function addAircraft (newAircraft) {
+  const action = { type: ADD_AIRCRAFT, newAircraft}
+  return action
+}
+
+export function getAircraftName (content) {
+  const action = { type: GET_AIRCRAFT_NAME, content}
+  return action
+}
 
 // THUNKS CREATORS
 export function fetchAircrafts() {
@@ -30,33 +35,18 @@ export function fetchAircrafts() {
 
   }
 
-  // export function fetchAircraft() {
+export function postAircraft({make, model, year, type, cost, imageUrl, desc, country}) {
+  console.log('in thunk', make, model)
+  return function thunk(dispatch) {
+    return axios.post('/api/aircrafts', {make, model, year, type, cost, imageUrl, desc, country})
+      .then(res => res.data)
+      .then(newAircraft => {
+        const action = getAircrafts(newAircraft)
+        dispatch(action)
+      })
+  }
 
-  //   return function thunk(dispatch) {
-  //     return axios.get(`/api/aircrafts/${aircraftId}`)
-  //       .then(res => res.data)
-  //       .then(foundAircraft => {
-  //         const action = getAircraft(foundAircraft)
-  //         dispatch(action)
-  //       })
-  //       .catch(error => {console.log(error)})
-  //   }
-
-  // }
-
-  // export function postAircraft(aircraft) {
-
-  //   return function thunk(dispatch) {
-  //     return axios.post('/api/aircrafts', aircraft)
-  //       .then(res => res.data)
-  //       .then(newAircraft => {
-  //         const action = getAircraft(newAircraft)
-  //         dispatch(action)
-  //       })
-  //       .catch(error => {console.log(error)})
-  //   }
-
-  // }
+}
 
   // export function putAircraft(aircraft) {
 
@@ -95,11 +85,12 @@ export default function aircraftReducer (state = initialState, action) {
   switch (action.type) {
     case GET_AIRCRAFTS:
       return Object.assign({}, state, {aircrafts: action.aircrafts})
-
+    case ADD_AIRCRAFT:
+      return Object.assign({}, state, {aircrafts: action.newAircraft})
+    case GET_AIRCRAFT_NAME:
+      return Object.assign({}, state, {aircrafts: state.aircrafts.concat(action.content)})
     // case GET_AIRCRAFT:
     //   return Object.assign({}, state, {aircraft: action.aircraft})
-    // case ADD_AIRCRAFT:
-    //   return Object.assign({}, state, {newAircraft: action.newAircraft})
     default:
       return state
   }

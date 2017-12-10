@@ -1,41 +1,48 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Button } from 'react-bootstrap'
+import store from '../store'
+import { postCountry } from '../reducers/countries'
 
 export default class AddCountry extends Component {
 
   constructor () {
     super()
-    this.state = {
-      country: []
-    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (event) {
-    const newCountry = event.target.newCountry.value
+  componentDidMount () {
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  }
 
-    axios.post('/countries', newCountry)
-    .then(res => res.data)
-    .then(newCountry => {
-      this.state.country = newCountry
-    })
+  componentWillUnmount () {
+    this.unsubscribe()
+  }
+
+  handleSubmit (event) {
+    event.preventDefault()
+    const name = event.target.name.value
+    const GFI = event.target.GFI.value
+    const flagUrl = event.target.flag.value
+
+    store.dispatch(postCountry({name, GFI, flagUrl}))
   }
 
   render () {
     return (
       <form onSubmit={this.handleSubmit}    name="newCountry"className="new-country-form">
         <h2>Add a New Country</h2>
-        Name: <input name="name" placeholder="Enter Country Name" />
-        Global FirePower Index: <input name="GFI" placeholder="Enter Country Global FirePower Index" />
-        Flag URL: <input name="flag" placeholder="Enter Flag URL Link" />
-        <Button bsStyle="danger">Add a New Aircraft</Button>
-        <Button bsStyle="danger">Submit New Country</Button>
+        Name: <input
+          name="name"
+          type="text"
+          placeholder="Enter Country Name" />
+        Global FirePower Index: <input
+          name="GFI"
+          type="text"
+          placeholder="Enter Country Global FirePower Index" />
+        Flag URL: <input
+          name="flag"
+          placeholder="Enter Flag URL Link" />
+        <button type="submit">Add New Country</button>
       </form>
     )
   }
 }
-// SUBMIT BUTTON - link to newly created aircraft, rendering SingleAircraft
-// toggle this.state.editing to decide axios.put or axios.create
-// if props are passed in for edit, autofill info in placeholder, else use hard-coded placeholder
-// css and refactor to react-redux

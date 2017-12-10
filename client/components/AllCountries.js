@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import store from '../store'
+import { Button } from 'react-bootstrap'
 
 export default class AllCountries extends Component {
 
@@ -24,6 +25,9 @@ export default class AllCountries extends Component {
     return (
       <div className="all-countries-container">
         <h3>Countries</h3>
+        <Link to="/countries/addCountry">
+          <Button bsStyle="default">Add a New Aircraft</Button>
+       </Link>
         <div className="all-countries-list">
         {
           countries.map(country => {
