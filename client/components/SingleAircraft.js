@@ -20,8 +20,7 @@ export default class SingleAircraft extends Component {
 
   render () {
     const aircrafts = this.state.aircraftReducer.aircrafts
-    console.log('aircrafts in single', aircrafts)
-    const aircraftId = parseInt(this.props.match.params.aircraftId)
+    const aircraftId = Number(this.props.match.params.aircraftId)
     const aircraftArray = aircrafts.filter(eachAircraft => eachAircraft.id === aircraftId)
     const aircraft = aircraftArray[0]
     const country = aircraft.country

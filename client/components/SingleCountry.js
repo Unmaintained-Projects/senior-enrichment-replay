@@ -1,30 +1,30 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
+import store from '../store'
 
 export default class SingleCountry extends Component {
 
-  constructor () {
-    super()
-    this.state = {
-      country: {}
-    }
+  constructor (props) {
+    super(props)
+    this.state = store.getState()
   }
 
   componentDidMount () {
-    const countryId = this.props.match.params.countryId
+    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  }
 
-    axios.get(`/api/countries/${countryId}`)
-    .then((res => res.data))
-    .then(country => this.setState({ country }))
+  componentWillUnmount () {
+    this.unsubscribe()
   }
 
   render () {
 
-    const country = this.state.country
-    const aircrafts = this.state.country.aircraft
-    console.log('country: ', country)
-    console.log('aircrafts: ', aircrafts)
+    const countries = this.state.countryReducer.countries
+    const countryId = Number(this.props.match.params.countryId)
+    const countriesArray = countries.filter(eachCountry => eachCountry.id === countryId)
+    const country = countriesArray[0]
+    const aircrafts = country.aircraft
+
     return (
       <div className="single-country-container">
         <h2>{ country.name }</h2>

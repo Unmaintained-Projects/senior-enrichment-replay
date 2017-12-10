@@ -13,7 +13,6 @@ import store from '../store'
 import { fetchAircrafts } from '../reducers/aircrafts'
 import { fetchCountries } from '../reducers/countries'
 
-
 export default class Home extends Component {
 
   componentDidMount () {

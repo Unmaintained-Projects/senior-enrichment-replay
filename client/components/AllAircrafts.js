@@ -6,8 +6,8 @@ import store from '../store'
 
 export default class AllAircrafts extends Component {
 
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = store.getState()
   }
 
