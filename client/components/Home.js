@@ -6,6 +6,7 @@ import AllCountries from './AllCountries'
 import SingleAircrafts from './SingleAircraft'
 import SingleCountry from './SingleCountry'
 import AddAircraft from './AddAircraft'
+import DeleteAircraft from './DeleteAircraft'
 import EditAircraft from './EditAircraft'
 import AddCountry from './AddCountry'
 import EditCountry from './EditCountry'
@@ -34,6 +35,7 @@ export default class Home extends Component {
             <Route exact path="/" component={AllAircrafts} />
             <Route exact path="/aircrafts/addAircraft" component={AddAircraft} />
             <Route exact path="/aircrafts/editAircraft" component={EditAircraft} />
+            <Route exact path="/aircraft/deleteAircraft/:aircraftId" component={DeleteAircraft} />
             <Route path="/aircrafts/:aircraftId" component={SingleAircrafts} />
             <Route exact path="/countries" component={AllCountries} />
             <Route exact path="/countries/addCountry" component={AddCountry} />

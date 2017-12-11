@@ -213,3 +213,11 @@ h3, h4 {
 .edit-aircraft-form {
   display: block;
 }
+
+/* ADD COUNTRY STYLES */
+
+.new-country-form {
+  display: block;
+  padding-left: 20px;
+}
+

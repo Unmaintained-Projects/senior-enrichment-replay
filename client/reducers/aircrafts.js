@@ -4,6 +4,7 @@ import axios from 'axios'
 export const GET_AIRCRAFTS = 'GET_AIRCRAFTS'
 export const ADD_AIRCRAFT = 'ADD_AIRCRAFT'
 export const GET_AIRCRAFT_NAME = 'GET_AIRCRAFT_NAME'
+export const DELETE_AIRCRAFT = 'DELETE_AIRCRAFT'
 
 // ACTION CREATORS
 export function getAircrafts (aircrafts) {
@@ -18,6 +19,11 @@ export function addAircraft (newAircraft) {
 
 export function getAircraftName (content) {
   const action = { type: GET_AIRCRAFT_NAME, content}
+  return action
+}
+
+export function deleteAircraft (aircraft) {
+  const action = { type: DELETE_AIRCRAFT, aircraft}
   return action
 }
 
@@ -61,18 +67,18 @@ export function postAircraft({make, model, year, type, cost, imageUrl, desc, cou
 
   // }
 
-  // export function destroyAircraft(aircraft) {
+  export function destroyAircraft(aircraftId) {
 
-  //   return function thunk(dispatch) {
-  //     return axios.delete('/api/aircrafts/:aircraft.id', aircraft)
-  //       // .then(res => res.data)
-  //       .then(aircraft => {
-  //         const action = deleteAircraft(aircraft)
-  //         dispatch(action)
-  //       })
-  //   }
+    return function thunk(dispatch) {
+      return axios.delete(`/api/aircrafts/${aircraftId}`)
+        .then(res => res.data)
+        .then(aircraft => {
+          const action = getAircrafts()
+          dispatch(action)
+        })
+    }
 
-  // }
+}
 
 const initialState =  {
   aircrafts: []

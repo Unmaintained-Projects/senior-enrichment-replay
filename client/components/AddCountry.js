@@ -28,7 +28,7 @@ export default class AddCountry extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}    name="newCountry"className="new-country-form">
+      <form onSubmit={this.handleSubmit}    name="newCountry" className="new-country-form">
         <h2>Add a New Country</h2>
         Name: <input
           name="name"
@@ -40,6 +40,7 @@ export default class AddCountry extends Component {
           placeholder="Enter Country Global FirePower Index" />
         Flag URL: <input
           name="flag"
+          type="text"
           placeholder="Enter Flag URL Link" />
         <button type="submit">Add New Country</button>
       </form>

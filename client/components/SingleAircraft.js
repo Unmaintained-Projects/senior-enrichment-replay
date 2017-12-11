@@ -25,7 +25,7 @@ export default class SingleAircraft extends Component {
     const aircraft = aircraftArray[0]
     const country = aircraft.country
     const countryName = aircraft.country.name
-
+    console.log('aircraft.id: ', aircraft.id)
     return (
       <div className="single-aircraft-container">
 
@@ -59,7 +59,7 @@ export default class SingleAircraft extends Component {
             <Button bsStyle="info">Edit This Aircraft</Button>
           </Link>
           {/* Link up delete functionality!!! */}
-          <Link to="/">
+          <Link to={`/aircraft/deleteAircraft/${aircraft.id}`}>
             <Button bsStyle="danger">Destroy This Aircraft</Button>
           </Link>
         </div>
