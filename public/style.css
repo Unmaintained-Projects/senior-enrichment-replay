@@ -221,3 +221,9 @@ h3, h4 {
   padding-left: 20px;
 }
 
+/* DESTROY AIRCRAFT STYLES */
+
+.destroy-form {
+  display: block;
+  padding-left: 20px;
+}

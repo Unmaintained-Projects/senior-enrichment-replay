@@ -10,6 +10,7 @@ import DeleteAircraft from './DeleteAircraft'
 import EditAircraft from './EditAircraft'
 import AddCountry from './AddCountry'
 import EditCountry from './EditCountry'
+import DeleteCountry from './DeleteCountry'
 import store from '../store'
 import { fetchAircrafts } from '../reducers/aircrafts'
 import { fetchCountries } from '../reducers/countries'
@@ -40,6 +41,7 @@ export default class Home extends Component {
             <Route exact path="/countries" component={AllCountries} />
             <Route exact path="/countries/addCountry" component={AddCountry} />
             <Route exact path="/countries/editCountry" component={EditCountry} />
+            <Route exact path="/countries/deleteCountry/:countryId" component={DeleteCountry} />
             <Route path="/countries/:countryId" component={SingleCountry} />
           </Switch>
           </div>

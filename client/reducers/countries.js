@@ -2,11 +2,16 @@ import axios from 'axios'
 
 // ACTION TYPES
 export const GET_COUNTRIES = 'GET_COUNTIRES'
-// const GET_COUNTRY = 'GET_COUNTRY'
+export const DELETE_COUNTRY = 'DELETE_COUNTRY'
 
 // ACTION CREATORS
 export function getCountries (countries) {
   const action = { type: GET_COUNTRIES, countries }
+  return action
+}
+
+export function deleteCountry (country) {
+  const action = { type: DELETE_COUNTRY, country}
   return action
 }
 
@@ -24,20 +29,6 @@ export function fetchCountries () {
 
 }
 
-// export function fetchCountry (country) {
-
-//   return function thunk(dispatch) {
-//     return axios.get(`/api/countries/${countryId}`, country)
-//       .then(res => res.data)
-//       .then(foundCountry => {
-//         const action = getCountry(foundCountry)
-//         dispatch(action)
-//       })
-//       .catch(error => {console.log(error)})
-//     }
-
-// }
-
 export function postCountry(country) {
 
   return function thunk(dispatch) {
@@ -49,6 +40,19 @@ export function postCountry(country) {
       })
       .catch(error => {console.log(error)})
     }
+
+}
+
+export function destroyCountry(countryId) {
+
+  return function thunk(dispatch) {
+    return axios.delete(`/api/countries/${countryId}`)
+      .then(res => res.data)
+      .then(country => {
+        const action = getCountries()
+        dispatch(action)
+      })
+  }
 
 }
 

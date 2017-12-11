@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TopFive from './TopFive'
 
 export default function Navbar () {
 
@@ -19,9 +18,6 @@ export default function Navbar () {
           <h3>Countries</h3>
         </Link>
 
-      </div>
-      <div className="top-five">
-        <TopFive />
       </div>
     </div>
   )

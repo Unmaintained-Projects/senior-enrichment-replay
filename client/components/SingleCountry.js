@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 import store from '../store'
 
 export default class SingleCountry extends Component {
@@ -30,6 +31,9 @@ export default class SingleCountry extends Component {
         <h2>{ country.name }</h2>
         <h4>Global Firepower Index: { country.GFI }</h4>
         <img src={ country.flagUrl } />
+        <Link to={`/countries/deleteCountry/${country.id}`}>
+            <Button bsStyle="danger">Destroy This Country</Button>
+        </Link>
         <div className="country-aircraft-list">
           {
             aircrafts && aircrafts.map(aircraft => {
@@ -44,6 +48,7 @@ export default class SingleCountry extends Component {
             })
           }
         </div>
+
       </div>
     )
   }

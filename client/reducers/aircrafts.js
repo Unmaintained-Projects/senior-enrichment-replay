@@ -67,7 +67,7 @@ export function postAircraft({make, model, year, type, cost, imageUrl, desc, cou
 
   // }
 
-  export function destroyAircraft(aircraftId) {
+export function destroyAircraft(aircraftId) {
 
     return function thunk(dispatch) {
       return axios.delete(`/api/aircrafts/${aircraftId}`)
