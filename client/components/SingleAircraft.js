@@ -38,7 +38,7 @@ export default class SingleAircraft extends Component {
             <div className="words">
               <h4>Year: { aircraft.year }</h4>
               <h4>Type: { aircraft.type }</h4>
-              <h4>Cost: { aircraft.cost }</h4>
+              <h4>Cost: $ { aircraft.cost } million</h4>
               <Link to={`/countries/${country.id}`}>
                 <h4>Country: { countryName }</h4>
               </Link>
