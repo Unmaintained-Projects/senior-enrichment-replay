@@ -27,6 +27,7 @@ function DeleteAircraft (props) {
     const id = Number(props.match.params.aircraftId)
     const foundAircraft = aircrafts.filter(aircraft => aircraft.id === id)
     const aircraft = foundAircraft[0]
+
     return (
       <div className="destroy-form">
         <h1>Are you sure you want to destroy {aircraft.make} {aircraft.model} ?</h1>
