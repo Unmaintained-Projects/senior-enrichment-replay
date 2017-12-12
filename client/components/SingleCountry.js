@@ -1,33 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import store from '../store'
+import { connect } from 'react-redux'
 
-export default class SingleCountry extends Component {
+function SingleCountry (props) {
 
-  constructor (props) {
-    super(props)
-    this.state = store.getState()
-  }
+  // constructor (props) {
+  //   super(props)
+  //   this.state = store.getState()
+  // }
 
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-  }
+  // componentDidMount () {
+  //   this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  // }
 
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
+  // componentWillUnmount () {
+  //   this.unsubscribe()
+  // }
 
-  render () {
+  // render () {
 
-    const countries = this.state.countryReducer.countries
-    console.log('countries: ', countries) // array of {}
-    const countryId = Number(this.props.match.params.countryId)
+    const countries = props.countries
+    const countryId = Number(props.match.params.countryId)
     const countriesArray = countries.filter(eachCountry => eachCountry.id === countryId)
     const country = countriesArray[0]
-    console.log('country now: ', country)
     const aircrafts = country.aircraft
-    console.log('aircrafts: ', aircrafts)
+
     return (
       <div className="single-country-container">
         <h2>{ country.name }</h2>
@@ -56,7 +54,14 @@ export default class SingleCountry extends Component {
 
       </div>
     )
+  // }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    countries: state.countryReducer.countries
   }
 }
 
-// add all aircrafts belonging to each country
+const SingleCountryContainer = connect(mapStateToProps)(SingleCountry)
+export default SingleCountryContainer

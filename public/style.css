@@ -213,6 +213,10 @@ h3, h4 {
   display: block;
 }
 
+.edit-aircraft-list {
+  display: inline;
+}
+
 /* ADD COUNTRY STYLES */
 
 .new-country-form {

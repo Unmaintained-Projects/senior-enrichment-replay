@@ -1,26 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import store from '../store'
+import { connect } from 'react-redux'
 
+function AllAircrafts (props) {
 
-export default class AllAircrafts extends Component {
+  // constructor () {
+  //   super()
+  //   this.state = store.getState()
+  // }
 
-  constructor () {
-    super()
-    this.state = store.getState()
-  }
+  // componentDidMount () {
+  //   this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  // }
 
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-  }
+  // componentWillUnmount () {
+  //   this.unsubscribe()
+  // }
 
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
-
-  render () {
-    const aircrafts = this.state.aircraftReducer.aircrafts
+  // render () {
+    const aircrafts = props.aircrafts
 
     return (
       <div className="all-aircrafts-container">
@@ -46,21 +45,14 @@ export default class AllAircrafts extends Component {
         </div>
       </div>
     )
+  // }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    aircrafts: state.aircraftReducer.aircrafts
   }
 }
 
-// const mapStateToProps = (state) => {
-//   console.log('state in map', state)
-//   return {
-//     aircrafts: state.aircrafts
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch, history) => {
-//   return {
-//         getAircrafts: () => dispatch(action.)
-//   }
-// }
-
-// const AllAircraftContainer = connect(mapStateToProps)(AllAircrafts);
-// export default AllAircraftContainer;
+const AllAircraftContainer = connect(mapStateToProps)(AllAircrafts)
+export default AllAircraftContainer

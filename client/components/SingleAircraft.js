@@ -1,31 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import store from '../store'
+import { connect } from 'react-redux'
 
-export default class SingleAircraft extends Component {
+function SingleAircraft (props) {
 
-  constructor (props) {
-    super(props)
-    this.state = store.getState()
-  }
+  // constructor (props) {
+  //   super(props)
+  //   this.state = store.getState()
+  // }
 
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-  }
+  // componentDidMount () {
+  //   this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  // }
 
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
+  // componentWillUnmount () {
+  //   this.unsubscribe()
+  // }
 
-  render () {
-    const aircrafts = this.state.aircraftReducer.aircrafts
-    const aircraftId = Number(this.props.match.params.aircraftId)
+  // render () {
+
+    const aircrafts = props.aircrafts
+    const aircraftId = Number(props.match.params.aircraftId)
     const aircraftArray = aircrafts.filter(eachAircraft => eachAircraft.id === aircraftId)
     const aircraft = aircraftArray[0]
     const country = aircraft.country
     const countryName = aircraft.country.name
-    console.log('aircraft.id: ', aircraft.id)
+
     return (
       <div className="single-aircraft-container">
 
@@ -64,6 +65,15 @@ export default class SingleAircraft extends Component {
 
       </div>
     )
-  }
+  // }
 
 }
+
+const mapStateToProps = (state) => {
+  return {
+    aircrafts: state.aircraftReducer.aircrafts
+  }
+}
+
+const SingleAircraftContainer = connect(mapStateToProps)(SingleAircraft)
+export default SingleAircraftContainer
