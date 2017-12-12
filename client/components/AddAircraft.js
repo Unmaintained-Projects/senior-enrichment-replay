@@ -1,39 +1,39 @@
-import React, { Component } from 'react'
-import store from '../store'
+import React from 'react'
+import { connect } from 'react-redux'
 import { postAircraft } from '../reducers/aircrafts'
 
-export default class AddAircraft extends Component {
+function AddAircraft (props) {
 
-  constructor () {
-    super()
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  // constructor () {
+  //   super()
+    // props.handleSubmit = props.handleSubmit.bind(this)
+  // }
 
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-  }
+  // componentDidMount () {
+  //   this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  // }
 
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
+  // componentWillUnmount () {
+  //   this.unsubscribe()
+  // }
 
-  handleSubmit (event) {
-    event.preventDefault()
-    const make = event.target.make.value
-    const model = event.target.model.value
-    const year = event.target.year.value
-    const type = event.target.type.value
-    const cost = event.target.cost.value
-    const imageUrl = event.target.imageUrl.value
-    const description = event.target.description.value
-    const country = event.target.country.value
+  // handleSubmit (event) {
+  //   event.preventDefault()
+  //   const make = event.target.make.value
+  //   const model = event.target.model.value
+  //   const year = event.target.year.value
+  //   const type = event.target.type.value
+  //   const cost = event.target.cost.value
+  //   const imageUrl = event.target.imageUrl.value
+  //   const description = event.target.description.value
+  //   const country = event.target.country.value
 
-    store.dispatch(postAircraft({make, model, year, type, cost, imageUrl, description, country}))
-  }
+  //   store.dispatch(postAircraft({make, model, year, type, cost, imageUrl, description, country}))
+  // }
 
-  render () {
+  // render () {
     return (
-      <form onSubmit={this.handleSubmit} className="new-aircraft-form">
+      <form onSubmit={props.handleSubmit} className="new-aircraft-form">
         <h2>Add a New Aircraft</h2>
         <div className="form-inputs">
           Make: <input
@@ -72,25 +72,32 @@ export default class AddAircraft extends Component {
         <button type="submit">Submit New Aircraft</button>
       </form>
     )
+  // }
+}
+
+const mapStateToProps = function (state) {
+  return {
+    aircrafts: state.aircraftReducer.aircrafts
   }
 }
 
-// const mapStateToProps = function (state) {
-//   return {
-//     aircrafts: state.aircrafts
-//   }
-// }
+const mapDispatchToProps = function (dispatch) {
+  return {
+    handleSubmit: function (event) {
+      event.preventDefault()
+      const make = event.target.make.value
+      const model = event.target.model.value
+      const year = event.target.year.value
+      const type = event.target.type.value
+      const cost = event.target.cost.value
+      const imageUrl = event.target.imageUrl.value
+      const description = event.target.description.value
+      const country = event.target.country.value
 
-// const mapDispatchToProps = function (dispatch) {
-//   return {
-//     handleSubmit (event, aircraft) {
-//       event.preventDefault()
-//       dispatch(postAircraft({aircraft}))
-//     }
-//   }
-// }
+      dispatch(postAircraft({make, model, year, type, cost, imageUrl, description, country}))
+    }
+  }
+}
 
-// export default connect(null, mapDispatchToProps)(AddAircraft)
-// SUBMIT BUTTON - link to newly created aircraft, rendering SingleAircraft
-
-// css and refactor to react-redux
+const AddAircraftContainer = connect(mapStateToProps, mapDispatchToProps)(AddAircraft)
+export default AddAircraftContainer

@@ -1,35 +1,35 @@
-import React, { Component } from 'react'
-import store from '../store'
+import React from 'react'
+import { connect } from 'react-redux'
 import { postCountry } from '../reducers/countries'
 
-export default class AddCountry extends Component {
+function AddCountry (props) {
 
-  constructor () {
-    super()
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  // constructor () {
+  //   super()
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  // }
 
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
-  }
+  // componentDidMount () {
+  //   this.unsubscribe = store.subscribe(() => this.setState(store.getState()))
+  // }
 
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
+  // componentWillUnmount () {
+  //   this.unsubscribe()
+  // }
 
-  handleSubmit (event) {
-    event.preventDefault()
-    console.log(event.target.name.value)
-    const name = event.target.name.value
-    const GFI = event.target.GFI.value
-    const flagUrl = event.target.flag.value
+  // handleSubmit (event) {
+  //   event.preventDefault()
+  //   console.log(event.target.name.value)
+  //   const name = event.target.name.value
+  //   const GFI = event.target.GFI.value
+  //   const flagUrl = event.target.flag.value
 
-    store.dispatch(postCountry({name, GFI, flagUrl}))
-  }
+  //   store.dispatch(postCountry({name, GFI, flagUrl}))
+  // }
 
-  render () {
+  // render () {
     return (
-      <form onSubmit={this.handleSubmit} name="newCountry" className="new-country-form">
+      <form onSubmit={props.handleSubmit} name="newCountry" className="new-country-form">
         <h2>Add a New Country</h2>
         Name: <input
           name="name"
@@ -46,5 +46,27 @@ export default class AddCountry extends Component {
         <button type="submit">Add New Country</button>
       </form>
     )
+  // }
+}
+
+const mapStateToProps = function (state) {
+  return {
+    countries: state.countryReducer.countries
   }
 }
+
+const mapDispatchToProps = function (dispatch) {
+  return {
+    handleSubmit: function (event) {
+      event.preventDefault()
+      const name = event.target.name.value
+      const GFI = event.target.GFI.value
+      const flagUrl = event.target.flag.value
+
+      dispatch(postCountry({name, GFI, flagUrl}))
+    }
+  }
+}
+
+const AddCountryContainer = connect(mapStateToProps, mapDispatchToProps)(AddCountry)
+export default AddCountryContainer
