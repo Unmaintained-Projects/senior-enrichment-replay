@@ -47,7 +47,7 @@ export function postAircraft({make, model, year, type, cost, imageUrl, descripti
     return axios.post('/api/aircrafts', {make, model, year, type, cost, imageUrl, description, country})
       .then(res => res.data)
       .then(newAircraft => {
-        const action = getAircrafts(newAircraft)
+        const action = editAircraft(newAircraft)
         dispatch(action)
       })
   }
@@ -60,7 +60,7 @@ export function putAircraft(aircraftId, aircraft) {
     return axios.put(`/api/aircrafts/${aircraftId}`, aircraft)
       .then(res => res.data)
       .then(updatedAircraft => {
-        const action = getAircrafts(updatedAircraft)
+        const action = editAircraft(updatedAircraft)
         dispatch(action)
       })
   }
@@ -92,7 +92,7 @@ export default function aircraftReducer (state = initialState, action) {
     case ADD_AIRCRAFT:
       return Object.assign({}, state, {aircrafts: action.newAircraft})
     case EDIT_AIRCRAFT:
-      return Object.assign({}, state, {aircrafts: action.newAircraft})
+      return Object.assign({}, state, {aircrafts: [...state.aircrafts, action.newAircraft]})
     default:
       return state
   }

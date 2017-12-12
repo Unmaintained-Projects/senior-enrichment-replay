@@ -19,7 +19,6 @@ export default class EditAircraft extends Component {
   }
 
   handleSubmit (event) {
-    console.log(event)
     event.preventDefault()
     const aircraftId = Number(this.props.match.params.aircraftId)
     const make = event.target.make.value
@@ -35,9 +34,12 @@ export default class EditAircraft extends Component {
   }
 
   render () {
+    console.log('getState: ', store.getState())
+    console.log('state: ', this.state)
     const aircrafts = this.state.aircraftReducer.aircrafts
     const id = Number(this.props.match.params.aircraftId)
-    const foundAircraft = aircrafts.filter(aircraft => aircraft.id === id)
+    console.log('aircrafts ', aircrafts)
+    const foundAircraft = aircrafts && aircrafts.filter(aircraft => aircraft.id === id)
     const aircraft = foundAircraft[0]
     console.log('edit this: ', aircraft)
     return (
