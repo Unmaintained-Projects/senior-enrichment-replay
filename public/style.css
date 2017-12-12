@@ -226,3 +226,9 @@ h3, h4 {
   display: block;
   padding-left: 20px;
 }
+
+/* EDIT COUNTRY STYLES */
+
+.edit-country-form {
+  display: block;
+}

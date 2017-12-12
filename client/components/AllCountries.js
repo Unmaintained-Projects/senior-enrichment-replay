@@ -26,7 +26,7 @@ export default class AllCountries extends Component {
       <div className="all-countries-container">
         <h3>Countries</h3>
         <Link to="/countries/addCountry">
-          <Button bsStyle="default">Add a New Aircraft</Button>
+          <Button bsStyle="default">Add a New Country</Button>
        </Link>
         <div className="all-countries-list">
         {

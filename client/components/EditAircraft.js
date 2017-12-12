@@ -34,14 +34,10 @@ export default class EditAircraft extends Component {
   }
 
   render () {
-    console.log('getState: ', store.getState())
-    console.log('state: ', this.state)
     const aircrafts = this.state.aircraftReducer.aircrafts
     const id = Number(this.props.match.params.aircraftId)
-    console.log('aircrafts ', aircrafts)
     const foundAircraft = aircrafts && aircrafts.filter(aircraft => aircraft.id === id)
     const aircraft = foundAircraft[0]
-    console.log('edit this: ', aircraft)
     return (
       <form onSubmit={this.handleSubmit} name="aircraft" className="edit-aircraft-form">
         <h2>Edit an Aircraft</h2>
