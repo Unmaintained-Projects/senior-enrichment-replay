@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
 import store from '../store'
+import { putAircraft } from '../reducers/aircrafts'
 
 export default class EditAircraft extends Component {
 
@@ -19,7 +19,19 @@ export default class EditAircraft extends Component {
   }
 
   handleSubmit (event) {
+    console.log(event)
+    event.preventDefault()
+    const aircraftId = Number(this.props.match.params.aircraftId)
+    const make = event.target.make.value
+    const model = event.target.model.value
+    const year = event.target.year.value
+    const type = event.target.type.value
+    const cost = event.target.cost.value
+    const imageUrl = event.target.imageUrl.value
+    const description = event.target.description.value
+    const country = event.target.country.value
 
+    store.dispatch(putAircraft(aircraftId, {make, model, year, type, cost, imageUrl, description, country}))
   }
 
   render () {
@@ -39,7 +51,7 @@ export default class EditAircraft extends Component {
         Image URL: <input name="imageUrl" placeholder={aircraft.imageUrl} />
         Description: <input name="description" placeholder={aircraft.description} />
         Country: <input name="country" placeholder={aircraft.country.name} />
-        <Button bsStyle="danger">Update Aircraft</Button>
+        <button type="submit">Update Aircraft</button>
       </form>
     )
   }
