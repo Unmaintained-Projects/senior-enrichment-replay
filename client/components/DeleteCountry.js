@@ -23,7 +23,6 @@ export default class DeleteCountry extends Component {
   }
 
   render () {
-    console.log('props: ', this.props)
 
     const countries = this.state.countryReducer.countries
     const id = Number(this.props.match.params.countryId)

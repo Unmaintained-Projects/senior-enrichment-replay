@@ -35,12 +35,12 @@ export default class Home extends Component {
           <Switch>
             <Route exact path="/" component={AllAircrafts} />
             <Route exact path="/aircrafts/addAircraft" component={AddAircraft} />
-            <Route exact path="/aircrafts/editAircraft" component={EditAircraft} />
+            <Route exact path="/aircrafts/editAircraft/:aircraftId" component={EditAircraft} />
             <Route exact path="/aircraft/deleteAircraft/:aircraftId" component={DeleteAircraft} />
             <Route path="/aircrafts/:aircraftId" component={SingleAircrafts} />
             <Route exact path="/countries" component={AllCountries} />
             <Route exact path="/countries/addCountry" component={AddCountry} />
-            <Route exact path="/countries/editCountry" component={EditCountry} />
+            <Route exact path="/countries/editCountry/:countryId" component={EditCountry} />
             <Route exact path="/countries/deleteCountry/:countryId" component={DeleteCountry} />
             <Route path="/countries/:countryId" component={SingleCountry} />
           </Switch>

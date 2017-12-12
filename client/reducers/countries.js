@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 // ACTION TYPES
-export const GET_COUNTRIES = 'GET_COUNTIRES'
+export const GET_COUNTRIES = 'GET_COUNTRIES'
+export const ADD_COUNTRY = 'ADD_COUNTRY'
 export const DELETE_COUNTRY = 'DELETE_COUNTRY'
 
 // ACTION CREATORS
@@ -10,8 +11,13 @@ export function getCountries (countries) {
   return action
 }
 
+export function addCountry (country) {
+  const action = { type: ADD_COUNTRY, country }
+  return action
+}
+
 export function deleteCountry (country) {
-  const action = { type: DELETE_COUNTRY, country}
+  const action = { type: DELETE_COUNTRY, country }
   return action
 }
 
@@ -30,7 +36,7 @@ export function fetchCountries () {
 }
 
 export function postCountry(country) {
-
+console.log('in post', country)
   return function thunk(dispatch) {
     return axios.post('/api/countries', country)
       .then(res => res.data)
@@ -46,7 +52,7 @@ export function postCountry(country) {
 export function destroyCountry(countryId) {
 
   return function thunk(dispatch) {
-    return axios.delete(`/api/countries/${countryId}`)
+    return axios.delete(`/api/countries/${countryId}`, countryId)
       .then(res => res.data)
       .then(country => {
         const action = getCountries()
@@ -77,6 +83,8 @@ export default function countryReducer(state = initialState, action) {
   switch (action.type) {
     case GET_COUNTRIES:
       return Object.assign({}, state, {countries: action.countries})
+    case ADD_COUNTRY:
+      return Object.assign({}, state, { countries: [...state.countries, action.country] })
     default:
       return state
   }

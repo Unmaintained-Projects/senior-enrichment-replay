@@ -41,7 +41,6 @@ const Aircraft = db.define('aircraft', {
   }
 });
 
-// have a method that gets aircrafts by inputted type
 Aircraft.getAircraftByType = (inputType) => {
   Aircraft.findAll({
     where: {
@@ -52,12 +51,5 @@ Aircraft.getAircraftByType = (inputType) => {
     return aircrafts
   })
 };
-
-// have a method to change the cost of 1 to $1,000,000 when retrieving records
-// beforeUpdate: set value on a model before saving it
-// Aircraft.changeCost('beforeUpdate', (aircraft) => {
-//   const costNum = aircraft.cost;
-//   return '$' + costNum + ',000,000'
-// });
 
 module.exports = Aircraft;

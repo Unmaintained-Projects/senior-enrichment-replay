@@ -54,11 +54,9 @@ export default class SingleAircraft extends Component {
         </div>
 
         <div className="buttons">
-          {/* capture update info and send to server and rerender new updated plane */}
-          <Link to="/aircrafts/editAircraft">
+          <Link to={`/aircrafts/editAircraft/${aircraft.id}`}>
             <Button bsStyle="info">Edit This Aircraft</Button>
           </Link>
-          {/* Link up delete functionality!!! */}
           <Link to={`/aircraft/deleteAircraft/${aircraft.id}`}>
             <Button bsStyle="danger">Destroy This Aircraft</Button>
           </Link>

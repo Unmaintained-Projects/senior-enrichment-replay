@@ -19,6 +19,7 @@ export default class AddCountry extends Component {
 
   handleSubmit (event) {
     event.preventDefault()
+    console.log(event.target.name.value)
     const name = event.target.name.value
     const GFI = event.target.GFI.value
     const flagUrl = event.target.flag.value
@@ -28,7 +29,7 @@ export default class AddCountry extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}    name="newCountry" className="new-country-form">
+      <form onSubmit={this.handleSubmit} name="newCountry" className="new-country-form">
         <h2>Add a New Country</h2>
         Name: <input
           name="name"

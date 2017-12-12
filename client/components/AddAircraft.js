@@ -25,10 +25,10 @@ export default class AddAircraft extends Component {
     const type = event.target.type.value
     const cost = event.target.cost.value
     const imageUrl = event.target.imageUrl.value
-    const desc = event.target.desc.value
+    const description = event.target.description.value
     const country = event.target.country.value
 
-    store.dispatch(postAircraft({make, model, year, type, cost, imageUrl, desc, country}))
+    store.dispatch(postAircraft({make, model, year, type, cost, imageUrl, description, country}))
   }
 
   render () {
@@ -61,7 +61,7 @@ export default class AddAircraft extends Component {
             type="text"
             placeholder="Enter Aircraft Image URL" />
           Description: <input
-            name="desc"
+            name="description"
             type="text"
             placeholder="Enter Aircraft Description" />
           Country: <input

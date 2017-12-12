@@ -3,7 +3,6 @@ import axios from 'axios'
 // ACTION TYPES
 export const GET_AIRCRAFTS = 'GET_AIRCRAFTS'
 export const ADD_AIRCRAFT = 'ADD_AIRCRAFT'
-export const GET_AIRCRAFT_NAME = 'GET_AIRCRAFT_NAME'
 export const DELETE_AIRCRAFT = 'DELETE_AIRCRAFT'
 
 // ACTION CREATORS
@@ -14,11 +13,6 @@ export function getAircrafts (aircrafts) {
 
 export function addAircraft (newAircraft) {
   const action = { type: ADD_AIRCRAFT, newAircraft}
-  return action
-}
-
-export function getAircraftName (content) {
-  const action = { type: GET_AIRCRAFT_NAME, content}
   return action
 }
 
@@ -41,10 +35,10 @@ export function fetchAircrafts() {
 
   }
 
-export function postAircraft({make, model, year, type, cost, imageUrl, desc, country}) {
-  console.log('in thunk', make, model)
+export function postAircraft({make, model, year, type, cost, imageUrl, description, country}) {
+
   return function thunk(dispatch) {
-    return axios.post('/api/aircrafts', {make, model, year, type, cost, imageUrl, desc, country})
+    return axios.post('/api/aircrafts', {make, model, year, type, cost, imageUrl, description, country})
       .then(res => res.data)
       .then(newAircraft => {
         const action = getAircrafts(newAircraft)
@@ -82,8 +76,6 @@ export function destroyAircraft(aircraftId) {
 
 const initialState =  {
   aircrafts: []
-  // aircraft: {},
-  // newAircraft: ''
 }
 
 // REDUCER FUNCTION
@@ -93,10 +85,6 @@ export default function aircraftReducer (state = initialState, action) {
       return Object.assign({}, state, {aircrafts: action.aircrafts})
     case ADD_AIRCRAFT:
       return Object.assign({}, state, {aircrafts: action.newAircraft})
-    case GET_AIRCRAFT_NAME:
-      return Object.assign({}, state, {aircrafts: state.aircrafts.concat(action.content)})
-    // case GET_AIRCRAFT:
-    //   return Object.assign({}, state, {aircraft: action.aircraft})
     default:
       return state
   }
